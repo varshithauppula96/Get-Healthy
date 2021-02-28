@@ -19,10 +19,10 @@ export default class Home extends React.Component {
 
                     <h2 className="text-center">Here's how we work</h2>
 <div className="text-center">
-    <button className=" m-3 p-3">food</button>
-    <button className=" m-3 p-3">food</button>
-    <button className=" m-3 p-3">food</button>
-    <button className="m-3 p-3">food</button>
+    <button className=" m-3 p-3 fas fa-utensils"></button>
+    <button className=" m-3 p-3 fas fa-clipboard"></button>
+    <button className=" m-3 p-3 fas fa-user"></button>
+    <button className="m-3 p-3 fas fa-comments"></button>
 </div>
 
 </div>
