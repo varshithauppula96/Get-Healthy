@@ -5,6 +5,7 @@ import Reviews from "./reviews";
 import Workout from "./workout-videos";
 
 import {Link} from "react-router-dom";
+import UserStories from "./user-stories";
 
 
 export default class Home extends React.Component {
@@ -84,14 +85,20 @@ WorkoutVideos =() => {
 
 
                     </div>
-<div>
+                    <div className="m-3 p-3 text-center">
+<div >
    <h1> GetHealthy delivers results</h1>
     <p>Fromm weight loss to reversing lifestyle conditions, GetHealthy has transformed over millions of lives.</p>
 </div>
 <div>
    <h1> Our Success stories</h1>
-</div>
 
+    <p>Dynamic content of users stories goes herex</p>
+    <UserStories/>
+
+
+</div>
+                    </div>
                 </div>
 
             </>
