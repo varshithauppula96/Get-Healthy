@@ -3,7 +3,9 @@ import Calories from "./calories";
 import Coaching from "./coaching";
 import Reviews from "./reviews";
 import Workout from "./workout-videos";
+
 import {Link} from "react-router-dom";
+
 
 export default class Home extends React.Component {
     constructor(props) {
@@ -55,6 +57,15 @@ WorkoutVideos =() => {
                             <i className="fa fa-heartbeat fa-2x"></i>
                             <span>GetHealthy</span>
                         </a>
+                        <div className="float-right">
+                            <button> <a href= "/sign-up">
+                            Sign up</a></button>
+                            <br/>
+
+                            <button> <a href = "/login">
+                                Sign in</a></button>
+
+                        </div>
                         {<img className="container-fluid" src="https://picsum.photos/id/429/1250/500"/>}
                     </nav>
 

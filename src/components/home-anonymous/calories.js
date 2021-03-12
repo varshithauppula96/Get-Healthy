@@ -1,8 +1,9 @@
 import React from 'react'
 
+
 const Calories =() =>{
     return(
-        <div className=" mx-auto col-md-6 mb-4">
+         <div className=" mx-auto col-md-6 mb-4">
 
 
             <div className="card">
@@ -22,7 +23,7 @@ const Calories =() =>{
                     <p className="card-text">Track your progress by tracking your food intake, water consumption,workouts and much more
                     to stay on track.</p>
 
-                    <a href="#" className="btn btn-primary">Know more</a>
+                    <a href="/sign-up" className="btn btn-primary">Know more</a>
 
                 </div>
 
