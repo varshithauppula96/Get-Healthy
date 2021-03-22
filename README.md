@@ -12,12 +12,14 @@ Diet and fitness related diseases are growing to epidemic proportions. Most part
 
 ## Goals of the users
 
-1) Admin:
+### Admin:
+
 · Manages the other user accounts that have been mentioned above - like the ability to delete/modify the account/profile of a given user.
 
 · Manages the other user's success stories - like the ability to delete a given user's success story.
 
-2) End users:
+### End users:
+
 · Can track calorie intake by logging in daily diet
 
 · Can track excercise and fitness activities
@@ -28,8 +30,10 @@ Diet and fitness related diseases are growing to epidemic proportions. Most part
 
 · Can view other user's success stories and comment
 
-3) Fitness trainers and dieticians:
+### Fitness trainers and dieticians:
+
 · Can view activity, calorie intake and profile of their respective trainees
+
 · Can post their success stories with customers
 
 ## Overall Strategy
