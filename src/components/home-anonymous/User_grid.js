@@ -8,7 +8,7 @@ import {Link} from "react-router-dom";
 const UserGrid =({courses, deleteCourse, updateCourse})=>{
     return(
         <div>
-           
+
 
             <div className="card-deck mt-2">
 

@@ -52,6 +52,8 @@ WorkoutVideos =() => {
         return (
             <>
                 <div>
+
+                    
                     <nav className="  p-3 navbar navbar-light" style={{backgroundColor: "#98c0d6"}}>
 
                         <a className="navbar-brand" href="#">
