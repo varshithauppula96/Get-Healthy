@@ -1,5 +1,7 @@
 const findMoviesByTitle = (title) => {
-    return fetch(`https://api.edamam.com/search?q=${title}&app_id=3a97f0d0&app_key=3a458b2fd268ece413a2f798bdea4b71`)
+    //return fetch(`http://www.omdbapi.com/?s=${title}&apikey=4a249f8d`)
+        //return fetch(`http://www.omdbapi.com/?s=${title}&apikey=4a249f8d`)
+    return fetch(`https://api.edamam.com/search?q/hits=${title}&app_id=3a97f0d0&app_key=3a458b2fd268ece413a2f798bdea4b71`)
         .then(response => response.json())
 }
 

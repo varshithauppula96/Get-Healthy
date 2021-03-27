@@ -1,60 +1,79 @@
 import React, {useState, useEffect} from 'react'
 import {Link, useParams, useHistory} from "react-router-dom";
-import movieService from "../../servers/movie-service"
+import {BrowserRouter, Route} from "react-router-dom"
+import Recipe from "../../Recipe";
 
-const SearchScreen = () => {
-    const history = useHistory()
-    const {title} = useParams()
-    const [searchTitle, setSearchTitle] = useState(title)
-    const [results, setResults] = useState({Search: []})
-    useEffect(() => {
-        setSearchTitle(title)
-        findMoviesByTitle(title)
-    }, [])
-    const findMoviesByTitle = (title) => {
-        history.push(title)
-        movieService.findMoviesByTitle(title)
-            .then((results) => {
-                setResults(results)
-            })
+
+
+
+
+const App = () => {
+
+    const APP_ID = "3a97f0d0";
+    const APP_KEY = "3a458b2fd268ece413a2f798bdea4b71";
+
+    const [recipes, setRecipes] = useState([]);
+    const [search, setSearch] = useState('');
+    const [query, setQuery] = useState('banana');
+
+
+
+
+
+    const getRecipes = async () => {
+        const response = await fetch(`https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}`);
+        const data = await response.json();
+        console.log(data);
+        setRecipes(data.hits);
     }
-    return(
-        <div>
-            <h2>Search Screen</h2>
-            <div className="row">
-                <div className="col-9">
-                    <input value={searchTitle}
-                           onChange={(event) => {
-                               setSearchTitle(event.target.value)
-                           }}
-                           className="form-control"/>
-                </div>
-                <div className="col-3">
-                    <button
-                        onClick={() => {
-                            findMoviesByTitle(searchTitle)
-                        }}
-                        className="btn btn-primary btn-block">
-                        Search
-                    </button>
+
+    useEffect(  () => {
+        getRecipes();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [query]);
+
+    const updateSearch = e => {
+        setSearch(e.target.value);
+        console.log(search);
+    }
+
+    const getSearch = e => {
+        e.preventDefault();
+        setQuery(search);
+        setSearch('');
+    }
+    return (
+        <BrowserRouter>
+
+            <div className="App">
+                <form onSubmit={getSearch} className="search-form">
+                    <input className="search-bar" type="text" value={search} onChange={updateSearch}/>
+                    <button className="search-button" type="submit">Search</button>
+                </form>
+                <div className="recipes">
+                    {recipes.map(recipe => (
+                        <Recipe
+                            key={recipe.recipe.label}
+                            title={recipe.recipe.label}
+                            calories={recipe.recipe.calories}
+                            image={recipe.recipe.image}
+                            ingredients={recipe.recipe.ingredients}
+                        />
+                    ))}
                 </div>
             </div>
-            <br/>
-            <ul className="list-group">
-                {
-                    results && results.Search && results.Search.map((movie) => {
-                        return(
-                            <li className="list-group-item">
-                                <a href = {`/details/${movie.imdbID}`}>
-                                    {movie.label}
-                                </a>
-                            </li>
-                        )
-                    })
-                }
-            </ul>
-        </div>
-    )
+
+
+        </BrowserRouter>
+
+    );
 }
 
-export default SearchScreen
+export default App;
+
+
+
+
+
+
+
