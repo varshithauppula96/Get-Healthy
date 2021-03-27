@@ -22,7 +22,7 @@ const Workout =() =>{
                     <p className="card-text">Get access to various diet plans and recipies along with a perfect
                     exercise routine with out Workout plan videos</p>
 
-                    <a href="#" className="btn btn-primary">Know more</a>
+                    <a href="/search/apple" className="btn btn-primary">Know more</a>
 
                 </div>
 
