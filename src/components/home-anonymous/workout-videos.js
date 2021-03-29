@@ -17,10 +17,9 @@ const Workout =() =>{
 
                 <div className="card-body">
 
-                    <h4 className="card-title">Diet and Workout plans</h4>
+                    <h4 className="card-title">Recipe</h4>
 
-                    <p className="card-text">Get access to various diet plans and recipies along with a perfect
-                    exercise routine with out Workout plan videos</p>
+                    <p className="card-text">Get access to various diet plans and recipes videos</p>
 
                     <a href="/search/apple" className="btn btn-primary">Know more</a>
 
