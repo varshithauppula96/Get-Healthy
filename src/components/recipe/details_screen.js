@@ -5,7 +5,7 @@ import recipeService from '../../servers/recipe-service'
 const DetailsScreen = () => {
     const {uri} = useParams()
 
-    const [recipe, setRecipe] = useState({})
+    const [recipe, setRecipe] = useState([])
     // useEffect(() => {
     //
     //     recipeService.findRecipeByID(uri).then(recipeReceived =>
@@ -13,12 +13,13 @@ const DetailsScreen = () => {
     // }, [uri])
     useEffect(() => {
         findRecipeByID(uri)
-    }, [uri])
+        console.log(recipe)
+    }, [])
 
     const findRecipeByID = (uri) => {
         recipeService.findRecipeByID(uri)
             .then((recipeReceived) => {
-                setRecipe(recipeReceived["hits"][0])
+                setRecipe(recipeReceived["hits"][0]["recipe"])
             })
     }
 
@@ -29,7 +30,7 @@ const DetailsScreen = () => {
             {/*{JSON.stringify(recipe)}*/}
             <h1>
                 {
-                    JSON.stringify(recipe["recipe"]["label"])
+                    JSON.stringify(recipe["label"])
                 }
             </h1>
             {/*<h2> {console.log(recipe["recipe"])}</h2>*/}

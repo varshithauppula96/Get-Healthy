@@ -5,7 +5,7 @@ const SearchScreen = () => {
     const history = useHistory()
     const {title} = useParams()
     const [searchTitle, setSearchTitle] = useState(title)
-    const [results, setResults] = useState({Search: []})
+    const [results, setResults] = useState([])
     const [recipes, setRecipes]= useState([])
     useEffect(() => {
         setSearchTitle(title)
