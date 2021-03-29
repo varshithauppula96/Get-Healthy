@@ -7,10 +7,10 @@ import SignUp from "./components/Registration/sign-up";
 import UserHome from "./components/home-user/user-home";
 import Trainee from "./components/trainee/trainer-home";
 import CourseManager from "./components/home-anonymous/user-stories";
-import RecipeScreen from "./components/recipie/recipe_page";
-import SearchScreen from "./components/recipie/search_recipe";
+import RecipeScreen from "./components/recipe/recipe_page";
+import SearchScreen from "./components/recipe/search_recipe";
 
-import DetailsScreen from "./components/recipie/details_screen";
+import DetailsScreen from "./components/recipe/details_screen";
 import React from "react";
 import UserStories from "./components/home-anonymous/user-stories";
 function App() {
@@ -23,14 +23,13 @@ function App() {
           <Route path="/home/user/:userID" exact={true}  component={UserHome}/>
           <Route path="/user/grid" exact={true}  component={UserStories}/>
           <Route path="/recipe" exact={true}  component={RecipeScreen}/>
-            <Route path={["/:title","/search", "/search/:title"]}
+            <Route path={["/search", "/search/:title"]}
                    exact={true}>
                 <SearchScreen/>
             </Route>
-            <Route path="/details/:imdbID" exact={true}>
+            <Route path="/details/:uri" exact={true}>
                 <DetailsScreen/>
             </Route>
-          <Route path="/recipe/details" exact={true}  component={DetailsScreen}/>
           <Route path="/trainer" exact={true}  component={Trainee}/>
 
         </div>
