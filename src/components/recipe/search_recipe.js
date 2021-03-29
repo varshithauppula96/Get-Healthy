@@ -1,15 +1,12 @@
 import React, {useState, useEffect} from 'react'
 import {Link, useParams, useHistory} from "react-router-dom";
 import recipeService from "../../servers/recipe-service"
-
 const SearchScreen = () => {
     const history = useHistory()
     const {title} = useParams()
     const [searchTitle, setSearchTitle] = useState(title)
     const [results, setResults] = useState({Search: []})
-
     const [recipes, setRecipes]= useState([])
-
     useEffect(() => {
         setSearchTitle(title)
         findRecipeByTitle(title)
@@ -45,7 +42,6 @@ const SearchScreen = () => {
             <br/>
             {/*{*/}
             {/*    JSON.stringify(results["hits"])*/}
-
             {/*}*/}
             {/*Object.keys(table[0]).forEach(key => console.log(key));*/}
             {/*recipe = results["hits"];*/}
@@ -53,18 +49,13 @@ const SearchScreen = () => {
                 {
                     recipes.map((recipe) =>
                     {
-                       return (
-                        <li className="list-group-item" key={(recipe["recipe"]["uri"]).split("recipe_")[1]}>
-                            <Link to = {`/details/${(recipe["recipe"]["uri"]).split("recipe_")[1]}`}>
-                            {recipe["recipe"]["label"]} </Link>
-                        </li>
+                        return (
+                            <li className="list-group-item" key={(recipe["recipe"]["uri"]).split("recipe_")[1]}>
+                                <Link to = {`/details/${(recipe["recipe"]["uri"]).split("recipe_")[1]}`}>
+                                    {recipe["recipe"]["label"]} </Link>
+                            </li>
                         )})
-
                 }
-
-
-
-
 
 
 
@@ -73,8 +64,7 @@ const SearchScreen = () => {
                 {/*    JSON.stringify(recipes)*/}
                 {/*}*/}
                 {/*{*/}
-
-                    {/*// results && results.Search && results.Search.map((recipe) => {*/}
+                {/*// results && results.Search && results.Search.map((recipe) => {*/}
                 {/*    //     return(*/}
                 {/*            // <li className="list-group-item">*/}
                 {/*            //     <a href = {`/details/${recipe.url}`}>*/}
@@ -92,6 +82,5 @@ const SearchScreen = () => {
         </div>
     )
 }
-
 
 export default SearchScreen

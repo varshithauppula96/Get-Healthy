@@ -4,21 +4,18 @@ import recipeService from '../../servers/recipe-service'
 
 const DetailsScreen = () => {
     const {uri} = useParams()
-    const history = useHistory()
+
     const [recipe, setRecipe] = useState({})
-    const [DetailTitle, setDetailTitle] = useState(uri)
     // useEffect(() => {
     //
     //     recipeService.findRecipeByID(uri).then(recipeReceived =>
     //     setRecipe(recipeReceived["hits"]))
     // }, [uri])
-
     useEffect(() => {
-        setDetailTitle(uri)
         findRecipeByID(uri)
-    }, [])
-    const findRecipeByID = (uri) => {
+    }, [uri])
 
+    const findRecipeByID = (uri) => {
         recipeService.findRecipeByID(uri)
             .then((recipeReceived) => {
                 setRecipe(recipeReceived["hits"][0])
@@ -26,27 +23,22 @@ const DetailsScreen = () => {
     }
 
 
-
-
     return(
         <div>
-            <button onClick={()=>{history.goBack()}}>Back</button>
+            {/*<button onClick={()=>{history.goBack()}}>Back</button>*/}
             {/*{JSON.stringify(recipe)}*/}
-
             <h1>
-            {
-                JSON.stringify(recipe["recipe"]["label"])
-            }
+                {
+                    JSON.stringify(recipe["recipe"]["label"])
+                }
             </h1>
             {/*<h2> {console.log(recipe["recipe"])}</h2>*/}
             {/*<p>*/}
             {/*    <img src={recipe["recipe"]["image"]} width={100} style={{float: "right"}}/>*/}
             {/*    {recipe["recipe"]["ingredients"]}*/}
             {/*</p>*/}
-
             {/*{JSON.stringify(recipe)}*/}
         </div>
     )
 }
-
 export default DetailsScreen
