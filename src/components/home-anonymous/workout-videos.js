@@ -21,7 +21,7 @@ const Workout =() =>{
 
                     <p className="card-text">Get access to various diet plans and recipes videos</p>
 
-                    <a href="/search/apple" className="btn btn-primary">Know more</a>
+                    <a href="/search/" className="btn btn-primary">Know more</a>
 
                 </div>
 
