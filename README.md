@@ -1,6 +1,6 @@
 # Get-Healthy
 
-Google doc link- https://docs.google.com/document/d/1xTqV9qh35fCEJ4gg3M-iZIaoQfSQQW5hup4dNkwTb2Y/edit?usp=sharing
+Project description [P1] document link- https://docs.google.com/document/d/1xTqV9qh35fCEJ4gg3M-iZIaoQfSQQW5hup4dNkwTb2Y/edit?usp=sharing
 
 ## Problem Statement
 
