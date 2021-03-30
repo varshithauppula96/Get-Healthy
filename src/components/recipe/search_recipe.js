@@ -5,12 +5,17 @@ const SearchScreen = () => {
     const history = useHistory()
     const {title} = useParams()
     const [searchTitle, setSearchTitle] = useState(title)
-    const [results, setResults] = useState([])
     const [recipes, setRecipes]= useState([])
+
     useEffect(() => {
         setSearchTitle(title)
-        findRecipeByTitle(title)
-    }, [])
+        if(title!== "" && title!==undefined){
+            findRecipeByTitle(title)
+        }
+        else{
+            setRecipes([])
+        }
+    },[])
     const findRecipeByTitle = (title) => {
         history.push(title)
         recipeService.findRecipeByTitle(title)

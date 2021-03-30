@@ -16,7 +16,7 @@ const DetailsScreen = () => {
         findRecipeByID(uri)
         console.log(recipe)
         console.log(nutrients)
-    }, [])
+    }, [uri])
     const findRecipeByID = (uri) => {
         recipeService.findRecipeByID(uri)
             .then((recipeReceived) => {
