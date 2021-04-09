@@ -11,6 +11,7 @@ import SearchScreen from "./components/recipe/search_recipe";
 import DetailsScreen from "./components/recipe/details_screen";
 import React from "react";
 import UserStories from "./components/home-anonymous/user-stories";
+import Trainer from "./components/trainer/trainer-home";
 function App() {
     return (
         <BrowserRouter>
@@ -28,7 +29,7 @@ function App() {
                 <Route path="/details/:uri" exact={true}>
                     <DetailsScreen/>
                 </Route>
-                <Route path="/trainer" exact={true}  component={Trainee}/>
+                <Route path="/trainer" exact={true}  component={Trainer}/>
             </div>
 
         </BrowserRouter>
