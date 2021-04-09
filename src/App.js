@@ -4,7 +4,7 @@ import Home from "./components/home-anonymous/home";
 import Login from "./components/login-page/login";
 import SignUp from "./components/Registration/sign-up";
 import UserHome from "./components/home-user/user-home";
-import Trainee from "./components/trainee/trainer-home";
+import Trainee from "./components/trainer/trainer-home";
 import CourseManager from "./components/home-anonymous/user-stories";
 import RecipeScreen from "./components/recipe/recipe_page";
 import SearchScreen from "./components/recipe/search_recipe";
