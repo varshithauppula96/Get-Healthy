@@ -106,7 +106,7 @@ function UserHome() {
                 </div>
 
                 <div>
-                    <MealTable meal={"Lunch"}/>
+                    <MealTable/>
                 </div>
             </main>
         </div>

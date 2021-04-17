@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
             flexShrink: 0,
         },
         [theme.breakpoints.down('sm')]: {
-            display : "none",
+            display: "none",
             // flexShrink: 0,
         },
     },
@@ -31,32 +31,25 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const NavSideBar = (props) =>
-{
-    const { window } = props;
+const NavSideBar = (props) => {
+    const {window} = props;
     const classes = useStyles();
     const theme = useTheme();
 
     const drawer = (
         <div>
-            <div className={classes.toolbar} />
-            <Divider />
+            <div className={classes.toolbar}/>
+            <Divider/>
             <List>
-                {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-                    <ListItem button key={text}>
-                        <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                        <ListItemText primary={text} />
-                    </ListItem>
-                ))}
-            </List>
-            <Divider />
-            <List>
-                {['All mail', 'Trash', 'Spam'].map((text, index) => (
-                    <ListItem button key={text}>
-                        <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                        <ListItemText primary={text} />
-                    </ListItem>
-                ))}
+                <ListItem button key={"dashboard"}>
+                    <ListItemText primary="Dashboard"/>
+                </ListItem>
+                <ListItem button key={"profile"}>
+                    <ListItemText primary="Profile"/>
+                </ListItem>
+                <ListItem button key={"profile"}>
+                    <ListItemText primary="Logout"/>
+                </ListItem>
             </List>
         </div>
     );

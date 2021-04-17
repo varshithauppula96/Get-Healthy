@@ -1,13 +1,18 @@
 import React from "react";
 import Typography from "@material-ui/core/Typography";
 import {AddCircle} from "@material-ui/icons";
+import IngredientService from "../../services/ingredient-service";
+import {Link} from "react-router-dom";
 
-const MealTable = ({meal}) => {
+const MealTable = () => {
     return (
+
         <>
             <Typography variant={"h4"}>
-                {meal}
-                <AddCircle color={"error"}/>
+                Meal Table
+                <Link to="/searchingredient/">
+                    <AddCircle color={"error"} />
+                </Link>
             </Typography>
 
             <table className="table">
