@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Login = () => {
+const Login123 = () => {
     return (
         <div className=" p-5 m-5 border border-info bg-secondary text-white  container-fill">
             <h1>Sign In</h1>
@@ -50,4 +50,4 @@ const Login = () => {
 
     )
 }
-export default Login
+export default Login123
