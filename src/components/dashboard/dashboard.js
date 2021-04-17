@@ -11,16 +11,20 @@ class Dashboard extends Component {
     render() {
         const { user } = this.props.auth;
         return (
+<div>
+    <UserHome/>
+
             <div style={{ height: "75vh" }} className="container valign-wrapper">
+
                 <div className="row">
-                    <div className="col s12 center-align">
+                    <div className="col s12 right-align">
                         <h4>
                             <b>Hey there,</b> {user.name.split(" ")[0]}
                             <p className="flow-text grey-text text-darken-1">
                                 You are logged into a full-stack{" "}
                                 <span style={{ fontFamily: "monospace" }}>MERN</span> app 👏
                             </p>
-                        <UserHome/>
+
                         </h4>
 
                         <button
@@ -35,8 +39,10 @@ class Dashboard extends Component {
                         >
                             Logout
                         </button>
+
                     </div>
                 </div>
+            </div>
             </div>
         );
     }
