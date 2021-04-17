@@ -20,6 +20,8 @@ import setAuthToken from "./utils/setAuthToken";
 import { setCurrentUser, logoutUser } from "./actions/authActions";
 import PrivateRoute from "./private-route/privateRoute";
 import Dashboard from "./components/dashboard/dashboard";
+import SearchIngredient from "./components/home-user/search-ingredient";
+
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
     // Set auth token header auth
@@ -38,6 +40,7 @@ if (localStorage.jwtToken) {
         window.location.href = "./login";
     }
 }
+
 function App() {
     return (
         <Provider store={store}>
@@ -62,6 +65,11 @@ function App() {
                     <PrivateRoute exact path="/dashboard" component={Dashboard} />
 
                 <Route path="/trainer" exact={true}  component={Trainer}/>
+                <Route path={["/home/user/:userID/searchingredient/", "/home/user/:userID/searchingredient/:title/"]}
+                       exact={true}>
+                    <SearchIngredient/>
+                </Route>
+
             </div>
 
         </BrowserRouter>
