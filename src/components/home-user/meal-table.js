@@ -15,7 +15,7 @@ const MealTable = ({dateValue}) => {
     const currentUserAndDate = (foodEntry) => {
         const today = new Date()
         const date = moment(dateValue, 'DD/MM/YYYY').format('YYYY-MM-DD') + "T"
-        console.log("Food entry",foodEntry)
+        console.log("Food entry", foodEntry)
         if (foodEntry["userId"] === userID && foodEntry["createdAt"].toString().includes(date))
             return true
         return false
