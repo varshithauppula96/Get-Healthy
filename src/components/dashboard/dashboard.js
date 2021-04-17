@@ -12,7 +12,7 @@ class Dashboard extends Component {
         const { user } = this.props.auth;
         return (
 <div>
-   
+   <UserHome/>
 
             <div style={{ height: "75vh" }} className="container valign-wrapper">
 

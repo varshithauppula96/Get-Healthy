@@ -106,7 +106,7 @@ function UserHome() {
                 </div>
 
                 <div>
-                    <MealTable/>
+                    <MealTable dateValue={dateValue}/>
                 </div>
             </main>
         </div>

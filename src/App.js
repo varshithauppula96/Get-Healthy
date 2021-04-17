@@ -65,7 +65,7 @@ function App() {
                     <PrivateRoute exact path="/dashboard" component={Dashboard} />
 
                 <Route path="/trainer" exact={true}  component={Trainer}/>
-                <Route path={["/searchingredient/", "/searchingredient/:title/"]}
+                <Route path={["/home/user/:userID/searchingredient/", "/home/user/:userID/searchingredient/:title/"]}
                        exact={true}>
                     <SearchIngredient/>
                 </Route>
