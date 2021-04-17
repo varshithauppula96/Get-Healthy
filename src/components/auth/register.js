@@ -12,6 +12,7 @@ class Register extends Component {
             email: "",
             password: "",
             password2: "",
+            userType:"",
             errors: {}
         };
     }
@@ -37,7 +38,8 @@ class Register extends Component {
             name: this.state.name,
             email: this.state.email,
             password: this.state.password,
-            password2: this.state.password2
+            password2: this.state.password2,
+            userType: this.state.userType
         };
         this.props.registerUser(newUser, this.props.history);
     };
@@ -115,6 +117,20 @@ class Register extends Component {
                                 />
                                 <label htmlFor="password2">Confirm Password</label>
                                 <span className="red-text">{errors.password2}</span>
+                            </div>
+                            <div className="input-field col s12">
+                                <input
+                                    onChange={this.onChange}
+                                    value={this.state.userType}
+                                    error={errors.userType}
+                                    id="userType"
+                                    type="text"
+                                    className={classnames("", {
+                                        invalid: errors.userType
+                                    })}
+                                />
+                                <label htmlFor="userType">UserType</label>
+                                <span className="red-text">{errors.userType}</span>
                             </div>
                             <div className="col s12" style={{ paddingLeft: "11.250px" }}>
                                 <button
