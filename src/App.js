@@ -46,13 +46,14 @@ function App() {
         <Provider store={store}>
         <BrowserRouter>
             <div className="container-fill">
+                <Route path="/" exact={true}  component={Home}/>
                 <Route path="/home" exact={true}  component={Home}/>
                 <Route path="/login" exact={true}  component={Login}/>
-                <Route path="/sign-up" exact={true}  component={SignUp}/>
+
                 <Route path="/home/user/:userID" exact={true}  component={UserHome}/>
                 <Route path="/user/grid" exact={true}  component={UserStories}/>
                 <Route path="/recipe" exact={true}  component={RecipeScreen}/>
-                <Route exact path= "/register"exact={true} component={Register} />
+                <Route exact path= "/sign-up"exact={true} component={Register} />
                 <Route path={["/search", "/search/:title"]}
                        exact={true}>
                     <SearchScreen/>

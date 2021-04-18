@@ -61,25 +61,25 @@ WorkoutVideos =() => {
                             <span>GetHealthy</span>
                         </a>
                         <div className="float-right">
-                            <button> <a href= "/sign-up">
+                            <span><button className="m-3"> <a href= "/sign-up">
                             Sign up</a></button>
-                            <br/>
 
                             <button> <a href = "/login">
                                 Sign in</a></button>
-
+    </span>
                         </div>
+
                         {<img className="container-fluid" src="https://picsum.photos/id/429/1250/500"/>}
                     </nav>
 
                     <h1 className=" m-3 p-3 text-center">Here's how we work</h1>
                     <div className="text-center">
 
-                        <button onClick={this.CountCalories} className=" m-3 p-3 fas fa-utensils"></button>
+                        <button onClick={this.CountCalories} className=" m-3 p-3 fas fa-utensils">Calorie counting</button>
 
-                        <button onClick={this.PersonalCoaching} className=" m-3 p-3 fas fa-user"></button>
-                        <button onClick={this.Reviews} className=" m-3 p-3 fas fa-comments"></button>
-                        <button  onClick={this.WorkoutVideos}  className="m-3 p-3 fas fa-clipboard"></button>
+                        <button onClick={this.PersonalCoaching} className=" m-3 p-3 fas fa-user">Personal Coaching</button>
+                        
+                        <button  onClick={this.WorkoutVideos}  className="m-3 p-3 fas fa-clipboard"> Recipies</button>
                         {this.state.CaloriesRender && <Calories/>}
                         {this.state.CoachingRender && <Coaching/>}
                         {this.state.ReviewsRender && <Reviews/>}
