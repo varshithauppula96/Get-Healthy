@@ -56,3 +56,7 @@ Get-Healthy helps measure:
 · Calories
 
 · Youtube videos
+
+## UML Diagram
+<img width="373" alt="umld" src="https://user-images.githubusercontent.com/36701923/115153519-6a812180-a044-11eb-8419-a04251062649.PNG">
+
