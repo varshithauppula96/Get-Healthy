@@ -10,33 +10,8 @@ export default class UserStories extends React.Component {
         userService.findAllUsers()
             .then(users => this.setState({users}))
     }
-    updateCourse = (user) => {
-        userService.updateUser(user._id, user)
-            .then(status => {
-                this.setState((prevState) => {
-                    let nextState = {...prevState}
-                    nextState.users = prevState.users.map(c => {
-                        if (c._id === user._id) {
-                            return user
-                        } else {
-                            return c
-                        }
-                    })
-                    return nextState
-                })
-            })
-    }
-    deleteCourse = (user) => {
-        userService.deleteUser(user._id)
-            .then(status => {
-                // this.setState({
-                //   courses: this.state.courses.filter(c => c._id !== course._id)
-                // })
-                this.setState((prevState) => ({
-                    users: prevState.users.filter(c => c._id !== user._id)
-                }))
-            })
-    }
+    
+
     addUser = (newName) => {
         const newUser = {
             title: newName,
@@ -56,9 +31,7 @@ export default class UserStories extends React.Component {
                     {/*<Route path="/courses/table" component={CourseTable}/>*/}
 
                     <UserGrid
-                        updateUser={this.updateUser}
-                        addUser={this.addUser}
-                        deleteUser={this.deleteUser}
+
                         users={this.state.users}/>
 
                 </BrowserRouter>

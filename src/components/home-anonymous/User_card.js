@@ -39,19 +39,7 @@ const UserCard = (
                     <p className="card-text">Some Description</p>
                     <p>User details</p>
                     <p>User weight</p>
-                    <div>
-                        {editing &&
-                        <i onClick={() => deleteUser(user)} className="fas fa-trash"></i>
-                        }
-                        {
-                            editing &&
-                            <i onClick={() => saveUser()} className="fas fa-check"></i>
-                        }
-                        {
-                            !editing &&
-                            <i onClick={() => setEditing(true)} className="fas fa-edit"></i>
-                        }
-                    </div>
+
                 </div>
             </div>
         </div>
