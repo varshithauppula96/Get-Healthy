@@ -12,7 +12,13 @@ class Register extends Component {
             email: "",
             password: "",
             password2: "",
+            gender:"",
+            dateOfBirth:"",
+            weightInKgs:"",
+            heightInCms:"",
             userType:"",
+            trainer:"",
+            about:"",
             errors: {}
         };
     }
@@ -39,7 +45,13 @@ class Register extends Component {
             email: this.state.email,
             password: this.state.password,
             password2: this.state.password2,
-            userType: this.state.userType
+            gender:this.state.gender,
+            dateOfBirth:this.state.dateOfBirth,
+            weightInKgs:this.state. weightInKgs,
+            heightInCms:this.state.heightInCms,
+            userType:this.state.userType,
+            trainer:this.state.trainer,
+            about:this.state.about,
         };
         this.props.registerUser(newUser, this.props.history);
     };
@@ -117,7 +129,66 @@ class Register extends Component {
                                 />
                                 <label htmlFor="password2">Confirm Password</label>
                                 <span className="red-text">{errors.password2}</span>
+
                             </div>
+                            <div className="input-field col s12">
+                                <input
+                                    onChange={this.onChange}
+                                    value={this.state.gender}
+                                    error={errors.gender}
+                                    id="gender"
+                                    type="text"
+                                    className={classnames("", {
+                                        invalid: errors.gender
+                                    })}
+                                />
+                                <label htmlFor="gender">Gender</label>
+                                <span className="red-text">{errors.gender}</span>
+                            </div>
+                            <div className="input-field col s12">
+                                <input
+                                    onChange={this.onChange}
+                                    value={this.state.dateOfBirth}
+                                    error={errors.dateOfBirth}
+                                    id="dateOfBirth"
+                                    type="date"
+                                    className={classnames("", {
+                                        invalid: errors.dateOfBirth
+                                    })}
+                                />
+                                <label htmlFor="dateOfBirth">Date of Birth</label>
+                                <span className="red-text">{errors.dateOfBirth}</span>
+                            </div>
+                            <div className="input-field col s12">
+                                <input
+                                    onChange={this.onChange}
+                                    value={this.state.weightInKgs}
+                                    error={errors.weightInKgs}
+                                    id="weightInKgs"
+                                    type="text"
+                                    className={classnames("", {
+                                        invalid: errors.weightInKgs
+                                    })}
+                                />
+                                <label htmlFor="weightInKgs">Weight in Kgs</label>
+                                <span className="red-text">{errors.weightInKgs}</span>
+                            </div>
+                            <div className="input-field col s12">
+                                <input
+                                    onChange={this.onChange}
+                                    value={this.state.heightInCms}
+                                    error={errors.heightInCms}
+                                    id="heightInCms"
+                                    type="text"
+                                    className={classnames("", {
+                                        invalid: errors.heightInCms
+                                    })}
+                                />
+                                <label htmlFor="heightInCms">Height in Cms</label>
+                                <span className="red-text">{errors.heightInCms
+                                }</span>
+                            </div>
+
                             <div className="input-field col s12">
                                 <input
                                     onChange={this.onChange}
@@ -131,6 +202,34 @@ class Register extends Component {
                                 />
                                 <label htmlFor="userType">UserType</label>
                                 <span className="red-text">{errors.userType}</span>
+                            </div>
+                            <div className="input-field col s12">
+                                <input
+                                    onChange={this.onChange}
+                                    value={this.state.trainer}
+                                    error={errors.trainer}
+                                    id="trainer"
+                                    type="text"
+                                    className={classnames("", {
+                                        invalid: errors.trainer
+                                    })}
+                                />
+                                <label htmlFor="trainer">Trainer</label>
+                                <span className="red-text">{errors.trainer}</span>
+                            </div>
+                            <div className="input-field col s12">
+                                <input
+                                    onChange={this.onChange}
+                                    value={this.state.about}
+                                    error={errors.about}
+                                    id="about"
+                                    type="about"
+                                    className={classnames("", {
+                                        invalid: errors.about
+                                    })}
+                                />
+                                <label htmlFor="about">Bio/About</label>
+                                <span className="red-text">{errors.about}</span>
                             </div>
                             <div className="col s12" style={{ paddingLeft: "11.250px" }}>
                                 <button
