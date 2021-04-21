@@ -47,7 +47,7 @@ const NavSideBar = (props) => {
                 <ListItem button key={"profile"}>
                     <ListItemText primary="Profile"/>
                 </ListItem>
-                <ListItem button key={"profile"}>
+                <ListItem button key={"logout"} onClick={props.logoutClick}>
                     <ListItemText primary="Logout"/>
                 </ListItem>
             </List>

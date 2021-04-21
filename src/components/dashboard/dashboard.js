@@ -69,7 +69,7 @@ class Dashboard extends Component {
 
         return (
             <div>
-                <NavSideBar mobileOpen={this.props.mobileOpen} handleDrawerToggle={this.handleDrawerToggle}/>
+                <NavSideBar mobileOpen={this.props.mobileOpen} handleDrawerToggle={this.handleDrawerToggle} logoutClick={this.onLogoutClick}/>
                 {/*<p>*/}
                 {/*    user.name;*/}
                 {/*    */}
