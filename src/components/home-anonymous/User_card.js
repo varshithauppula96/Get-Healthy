@@ -2,21 +2,21 @@ import React ,{useState} from 'react';
 import {Link} from "react-router-dom";
 const UserCard = (
     {
-        course,
+        user,
         lastModified="1/1/2021",
         owner="who knows?",
-        deleteCourse,
-        updateCourse
+        deleteUser,
+        updateUser
     }) => {
     const [editing, setEditing] = useState(false)
-    const [title, setTitle] = useState(course.title)
-    const saveCourse = () => {
+    const [name, setName] = useState(user.name)
+    const saveUser = () => {
         setEditing(false)
-        const newCourse = {
-            ...course,
-            title: title
+        const newUser = {
+            ...user,
+            name: name
         }
-        updateCourse(newCourse)
+        updateUser(newUser)
     }
     return (
         <div className="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-xs-1">
@@ -25,27 +25,27 @@ const UserCard = (
                 <div className="card-body" >
                     <h5 className="card-title">
                         {!editing &&
-                        <a href={`/courses/grid/edit/${course._id}`}>
-                            {course.title}
+                        <a href={`/courses/grid/edit/${user._id}`}>
+                            {user.name}
                         </a>
                         }
                         {editing &&
                         <input
                             className="form-control "
-                            onChange={(e) => setTitle(e.target.value)}
-                            value={title}/>
+                            onChange={(e) => setName(e.target.value)}
+                            value={name}/>
                         }
                     </h5>
                     <p className="card-text">Some Description</p>
-                    <p>{course.owner}</p>
-                    <p>{course.lastModified}</p>
+                    <p>User details</p>
+                    <p>User weight</p>
                     <div>
                         {editing &&
-                        <i onClick={() => deleteCourse(course)} className="fas fa-trash"></i>
+                        <i onClick={() => deleteUser(user)} className="fas fa-trash"></i>
                         }
                         {
                             editing &&
-                            <i onClick={() => saveCourse()} className="fas fa-check"></i>
+                            <i onClick={() => saveUser()} className="fas fa-check"></i>
                         }
                         {
                             !editing &&

@@ -3,30 +3,23 @@ import UserCard from "./User_card";
 import {Link} from "react-router-dom";
 
 
-
-
-const UserGrid =({courses, deleteCourse, updateCourse})=>{
+const UserGrid =({users, deleteUser, updateUser})=>{
     return(
         <div>
-
 
             <div className="card-deck mt-2">
 
 
-
-
                 {
-                    courses.map( course =>
+                    users.map( user =>
                         <UserCard
-                            key={course._id}
-                            deleteCourse= {deleteCourse}
-                            updateCourse= {updateCourse}
-                            course={course}
+                            key={user._id}
+                            deleteUser= {deleteUser}
+                            updateUser= {updateUser}
+                            user={user}
                         /> )
-
                 }
             </div>
-
 
         </div>
     )

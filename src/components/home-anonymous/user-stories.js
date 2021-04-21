@@ -1,28 +1,23 @@
 import React from 'react'
-
 import UserGrid from "./User_grid";
-
 import {BrowserRouter, Link, Route} from "react-router-dom";
-import courseService, {findAllCourses, deleteCourse} from "../../servers/home_user_services";
-
+import userService, {findAllCourses, deleteCourse} from "../../services/home_user_services";
 export default class UserStories extends React.Component {
     state = {
-        courses: []
+        users: []
     }
-
     componentDidMount() {
-        courseService.findAllCourses()
-            .then(courses => this.setState({courses}))
+        userService.findAllUsers()
+            .then(users => this.setState({users}))
     }
-
-    updateCourse = (course) => {
-        courseService.updateCourse(course._id, course)
+    updateCourse = (user) => {
+        userService.updateUser(user._id, user)
             .then(status => {
                 this.setState((prevState) => {
                     let nextState = {...prevState}
-                    nextState.courses = prevState.courses.map(c => {
-                        if (c._id === course._id) {
-                            return course
+                    nextState.users = prevState.users.map(c => {
+                        if (c._id === user._id) {
+                            return user
                         } else {
                             return c
                         }
@@ -31,58 +26,45 @@ export default class UserStories extends React.Component {
                 })
             })
     }
-
-    deleteCourse = (course) => {
-
-        courseService.deleteCourse(course._id)
+    deleteCourse = (user) => {
+        userService.deleteUser(user._id)
             .then(status => {
                 // this.setState({
                 //   courses: this.state.courses.filter(c => c._id !== course._id)
                 // })
                 this.setState((prevState) => ({
-                    courses: prevState.courses.filter(c => c._id !== course._id)
+                    users: prevState.users.filter(c => c._id !== user._id)
                 }))
             })
     }
-
-    addCourse = (newTitle) => {
-
-        const newCourse = {
-            title: newTitle,
-            owner: "me",
-            lastModified: (new Date()).toDateString()
+    addUser = (newName) => {
+        const newUser = {
+            title: newName,
         }
         document.getElementById('title-fld').value = ""
-        courseService.createCourse(newCourse)
-            .then(actualCourse => {
-                this.state.courses.push(actualCourse)
+        userService.createUser(newUser)
+            .then(actualUser => {
+                this.state.user.push(actualUser)
                 this.setState(this.state)
             })
     }
 
-
     render() {
         return (
-
             <div>
                 <BrowserRouter>
-
                     {/*<Route path="/courses/table" component={CourseTable}/>*/}
 
-
                     <UserGrid
-                        updateCourse={this.updateCourse}
-                        addCourse={this.addCourse}
-                        deleteCourse={this.deleteCourse}
-                        courses={this.state.courses}/>
-
+                        updateUser={this.updateUser}
+                        addUser={this.addUser}
+                        deleteUser={this.deleteUser}
+                        users={this.state.users}/>
 
                 </BrowserRouter>
             </div>
         )
     }
 }
-
-
 
 // export default UserStories
