@@ -93,9 +93,9 @@ WorkoutVideos =() => {
     <p>Fromm weight loss to reversing lifestyle conditions, GetHealthy has transformed over millions of lives.</p>
 </div>
 <div>
-   <h1> Our Success stories</h1>
+   <h1> Our Users</h1>
 
-    <p>Dynamic content of users stories goes herex</p>
+
     <UserStories/>
 
 
