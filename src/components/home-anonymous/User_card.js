@@ -25,9 +25,9 @@ const UserCard = (
                 <div className="card-body" >
                     <h5 className="card-title">
                         {!editing &&
-                        <a href={`/courses/grid/edit/${user._id}`}>
-                            {user.name}
-                        </a>
+                        // <a href={`/profile/${user._id}`}>
+                        <h3>{user.name}</h3>
+                        // </a>
                         }
                         {editing &&
                         <input
@@ -36,9 +36,9 @@ const UserCard = (
                             value={name}/>
                         }
                     </h5>
-                    <p className="card-text">Some Description</p>
-                    <p>User details</p>
-                    <p>User weight</p>
+                    <p className="card-text">{user.about}</p>
+                   <p><b>Weight:</b> {user.weightInKgs}Kg</p>
+                    <p><b>Height:</b>{user.heightInCms}Cm</p>
 
                 </div>
             </div>
