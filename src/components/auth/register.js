@@ -235,20 +235,42 @@ class Register extends Component {
 
 
 
+                            {/*<div className="input-field col s12">*/}
+                            {/*    <input*/}
+                            {/*        onChange={this.onChange}*/}
+                            {/*        value={this.state.userType}*/}
+                            {/*        error={errors.userType}*/}
+                            {/*        id="userType"*/}
+                            {/*        type="text"*/}
+                            {/*        className={classnames("", {*/}
+                            {/*            invalid: errors.userType*/}
+                            {/*        })}*/}
+                            {/*    />*/}
+                            {/*    <label htmlFor="userType">UserType</label>*/}
+                            {/*    <span className="red-text">{errors.userType}</span>*/}
+                            {/*</div>*/}
+
                             <div className="input-field col s12">
-                                <input
-                                    onChange={this.onChange}
-                                    value={this.state.userType}
-                                    error={errors.userType}
-                                    id="userType"
-                                    type="text"
-                                    className={classnames("", {
-                                        invalid: errors.userType
-                                    })}
-                                />
+                                <select error={errors.userType}
+                                        id="userType"
+                                        className={classnames("", {
+                                            invalid: errors.userType
+                                        })}
+                                        value={this.state.value}  onChange={this.onChange}>
+                                    <option value="User">User</option>
+                                    <option value="Trainer">Trainer</option>
+
+
+                                </select>
                                 <label htmlFor="userType">UserType</label>
                                 <span className="red-text">{errors.userType}</span>
                             </div>
+
+
+
+
+
+
                             <div className="input-field col s12">
                                 <input
                                     onChange={this.onChange}
