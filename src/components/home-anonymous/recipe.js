@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Workout =() =>{
+const Recipe=() =>{
     return(
         <div className=" mx-auto col-md-6 mb-4">
 
@@ -32,4 +32,4 @@ const Workout =() =>{
     )
 
 }
-export default Workout
+export default Recipe

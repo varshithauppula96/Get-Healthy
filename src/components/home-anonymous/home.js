@@ -2,7 +2,7 @@ import React from 'react'
 import Calories from "./calories";
 import Coaching from "./coaching";
 import Reviews from "./reviews";
-import Workout from "./workout-videos";
+import Recipe from "./recipe";
 
 import {Link} from "react-router-dom";
 import UserStories from "./user-stories";
@@ -15,38 +15,38 @@ export default class Home extends React.Component {
             CaloriesRender: true,
             CoachingRender: false,
             ReviewsRender :false,
-            WorkoutRender :false
+            RecipeRender :false
         }
         this.CountCalories = this.CountCalories.bind(this);
         this.PersonalCoaching =this.PersonalCoaching.bind(this);
         this.Reviews =this.Reviews.bind(this);
-        this.WorkoutVideos =this.WorkoutVideos.bind(this);
+        this.Recipe =this.Recipe.bind(this);
     }
 
     CountCalories = () => {
         this.setState({CoachingRender: false});
-        this.setState({WorkoutRender: false});
+        this.setState({RecipeRender: false});
         this.setState({ReviewsRender: false});
         this.setState({CaloriesRender:true});
     }
 PersonalCoaching =() => {
     this.setState({CaloriesRender: false});
-    this.setState({WorkoutRender: false});
+    this.setState({RecipeRender: false});
     this.setState({ReviewsRender: false});
         this.setState({CoachingRender:true});
 }
 Reviews =() =>{
     this.setState({CaloriesRender: false});
     this.setState({CoachingRender: false});
-    this.setState({WorkoutRender: false});
+    this.setState({RecipeRender: false});
     this.setState({ReviewsRender:true});
 }
 
-WorkoutVideos =() => {
+    Recipe =() => {
     this.setState({CaloriesRender: false});
     this.setState({CoachingRender: false});
     this.setState({ReviewsRender: false});
-    this.setState({WorkoutRender:!this.state.WorkoutRender});
+    this.setState({RecipeRender:!this.state.RecipeRender});
 }
     render() {
         return (
@@ -79,11 +79,11 @@ WorkoutVideos =() => {
 
                         <button onClick={this.PersonalCoaching} className=" m-3 p-3 fas fa-user">Personal Coaching</button>
                         
-                        <button  onClick={this.WorkoutVideos}  className="m-3 p-3 fas fa-clipboard"> Recipies</button>
+                        <button  onClick={this.Recipe}  className="m-3 p-3 fas fa-clipboard"> Recipes</button>
                         {this.state.CaloriesRender && <Calories/>}
                         {this.state.CoachingRender && <Coaching/>}
                         {this.state.ReviewsRender && <Reviews/>}
-                        {this.state.WorkoutRender && <Workout/>}
+                        {this.state.RecipeRender && <Recipe/>}
 
 
                     </div>
@@ -93,7 +93,7 @@ WorkoutVideos =() => {
     <p>Fromm weight loss to reversing lifestyle conditions, GetHealthy has transformed over millions of lives.</p>
 </div>
 <div>
-   <h1> Our Users</h1>
+   <h1> Our Success stories</h1>
 
 
     <UserStories/>
