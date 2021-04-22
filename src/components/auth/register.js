@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { registerUser } from "../../actions/authActions";
 import classnames from "classnames";
+import Dropdown from 'react-dropdown';
 class Register extends Component {
     constructor() {
         super();
@@ -131,20 +132,60 @@ class Register extends Component {
                                 <span className="red-text">{errors.password2}</span>
 
                             </div>
+                            {/*<div className="input-field col s12">*/}
+                            {/*    <input*/}
+                            {/*        onChange={this.onChange}*/}
+                            {/*        value={this.state.gender}*/}
+                            {/*        error={errors.gender}*/}
+                            {/*        id="gender"*/}
+                            {/*        type="text"*/}
+                            {/*        className={classnames("", {*/}
+                            {/*            invalid: errors.gender*/}
+                            {/*        })}*/}
+                            {/*    />*/}
+                            {/*    <label htmlFor="gender">Gender</label>*/}
+                            {/*    <span className="red-text">{errors.gender}</span>*/}
+                            {/*</div>*/}
+
                             <div className="input-field col s12">
-                                <input
-                                    onChange={this.onChange}
-                                    value={this.state.gender}
-                                    error={errors.gender}
-                                    id="gender"
-                                    type="text"
-                                    className={classnames("", {
-                                        invalid: errors.gender
-                                    })}
-                                />
+                                <select error={errors.gender}
+                                        id="gender"
+                                        className={classnames("", {
+                                            invalid: errors.gender
+                                        })}
+                                        value={this.state.value}  onChange={this.onChange}>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Other">Other</option>
+
+                                </select>
+
+
+
+
                                 <label htmlFor="gender">Gender</label>
                                 <span className="red-text">{errors.gender}</span>
                             </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                             <div className="input-field col s12">
                                 <input
                                     onChange={this.onChange}
@@ -188,6 +229,11 @@ class Register extends Component {
                                 <span className="red-text">{errors.heightInCms
                                 }</span>
                             </div>
+
+
+
+
+
 
                             <div className="input-field col s12">
                                 <input
