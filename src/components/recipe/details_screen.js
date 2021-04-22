@@ -32,6 +32,7 @@ const DetailsScreen = () => {
     });
     return(
         <div>
+        <a href={"/search"}>Back to search page</a>
             {/*<button onClick={()=>{history.goBack()}}>Back</button>*/}
             {/*{JSON.stringify(recipe)}*/}
             <h2 style={{textAlign:"center"}}>

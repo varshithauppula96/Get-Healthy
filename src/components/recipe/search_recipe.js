@@ -25,6 +25,7 @@ const SearchScreen = () => {
     }
     return(
         <div>
+            <a href={"/home"}>Back to home page</a>
             <h2>Search Screen</h2>
             <div className="row">
                 <div className="col-9">
