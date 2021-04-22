@@ -2,6 +2,8 @@ const USERS_URL = "http://localhost:5000/api/users";
 export const findAllUsers = () =>
     fetch(USERS_URL)
         .then(response => response.json())
+
+
 export const deleteUser = (userId) =>
     fetch(`${USERS_URL}/${userId}`, {
         method: 'DELETE'

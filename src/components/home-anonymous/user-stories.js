@@ -12,17 +12,7 @@ export default class UserStories extends React.Component {
     }
     
 
-    addUser = (newName) => {
-        const newUser = {
-            title: newName,
-        }
-        document.getElementById('title-fld').value = ""
-        userService.createUser(newUser)
-            .then(actualUser => {
-                this.state.user.push(actualUser)
-                this.setState(this.state)
-            })
-    }
+
 
     render() {
         return (

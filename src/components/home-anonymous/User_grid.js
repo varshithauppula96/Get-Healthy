@@ -3,7 +3,7 @@ import UserCard from "./User_card";
 import {Link} from "react-router-dom";
 
 
-const UserGrid =({users, deleteUser, updateUser})=>{
+const UserGrid =({users})=>{
     return(
         <div>
 
@@ -11,11 +11,10 @@ const UserGrid =({users, deleteUser, updateUser})=>{
 
 
                 {
-                    users.map( user =>
+                    users.slice(0,3).map( user =>
                         <UserCard
                             key={user._id}
-                            deleteUser= {deleteUser}
-                            updateUser= {updateUser}
+
                             user={user}
                         /> )
                 }
