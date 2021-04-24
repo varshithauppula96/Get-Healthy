@@ -1,8 +1,10 @@
 const USERS_URL = "http://localhost:5000/api/users";
+const TRAINER_URL ="http://localhost:5000/api/users/trainers";
 export const findAllUsers = () =>
     fetch(USERS_URL)
         .then(response => response.json())
-
+export const findTrainers =() =>
+    fetch(TRAINER_URL).then(response =>response.json())
 
 export const deleteUser = (userId) =>
     fetch(`${USERS_URL}/${userId}`, {
@@ -36,7 +38,8 @@ const api = {
     deleteUser: deleteUser,
     createUser,
     updateUser,
-    findUserById
+    findUserById,
+    findTrainers
 }
 export default api;
 
