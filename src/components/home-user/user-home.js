@@ -15,7 +15,6 @@ import {Paper} from "@material-ui/core";
 import MealTable from "./meal-table";
 
 const drawerWidth = 240;
-const initialValue = new Date();
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -40,15 +39,15 @@ const useStyles = makeStyles((theme) => ({
         padding: theme.spacing(3),
         width: "inherit"
     },
-    horizontalItems: {
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center"
-    },
     hide_above_sm: {
         [theme.breakpoints.up('sm')]: {
             display: 'none',
         },
+    },
+    horizontalItems: {
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center"
     }
 }));
 
@@ -56,7 +55,8 @@ function UserHome() {
     const classes = useStyles();
 
     const [mobileOpen, setMobileOpen] = React.useState(false);
-    const [dateValue, setDateValue] = React.useState(initialValue);
+    const [dateValue, setDateValue] = React.useState(new Date())
+    //const [totalCalories, setTotalCalories] = React.useState(0)
 
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
@@ -98,11 +98,11 @@ function UserHome() {
                         />
                     </LocalizationProvider>
 
-                    <Typography variant="h6"
-                                noWrap
-                                component={Paper}>
-                        Total Calorie Intake = 0
-                    </Typography>
+                    {/*<Typography variant="h6"*/}
+                    {/*            noWrap*/}
+                    {/*            component={Paper}>*/}
+                    {/*    Total Calorie Intake = {totalCalories}*/}
+                    {/*</Typography>*/}
                 </div>
 
                 <div>

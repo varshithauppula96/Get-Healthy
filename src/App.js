@@ -21,6 +21,7 @@ import { setCurrentUser, logoutUser } from "./actions/authActions";
 import PrivateRoute from "./private-route/privateRoute";
 import Dashboard from "./components/dashboard/dashboard";
 import SearchIngredient from "./components/home-user/search-ingredient";
+import Profile from "./components/profile/profile";
 
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
@@ -63,7 +64,8 @@ function App() {
                 </Route>
                 {/* eslint-disable-next-line react/jsx-no-undef */}
 
-                    <PrivateRoute exact path="/dashboard" component={Dashboard} />
+                <PrivateRoute exact path="/dashboard" component={Dashboard} />
+                <Route exact path="/profile" component={Profile} />
 
                 <Route path="/trainer" exact={true}  component={Trainer}/>
                 <Route path={["/home/user/:userID/searchingredient/", "/home/user/:userID/searchingredient/:title/"]}

@@ -5,6 +5,7 @@ import { logoutUser } from "../../actions/authActions";
 import NavSideBar from "../home-user/nav-sidebar";
 import { withStyles } from '@material-ui/styles';
 import {makeStyles} from "@material-ui/core/styles";
+import Profile from "../profile/profile";
 
 const drawerWidth = 240;
 const initialValue = new Date();
@@ -62,6 +63,11 @@ class Dashboard extends Component {
         this.props.logoutUser()
     };
 
+    onProfileUpdateClick = e => {
+        e.preventDefault()
+        this.props.updateProfile()
+    };
+
     render() {
         const { user } = this.props.auth;
         console.log(user);
@@ -70,6 +76,7 @@ class Dashboard extends Component {
         return (
             <div>
                 <NavSideBar mobileOpen={this.props.mobileOpen} handleDrawerToggle={this.handleDrawerToggle} logoutClick={this.onLogoutClick}/>
+
                 {/*<p>*/}
                 {/*    user.name;*/}
                 {/*    */}
