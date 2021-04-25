@@ -6,20 +6,64 @@ import {logoutUser} from "../../actions/authActions";
 
 class Profile extends Component {
 
-    constructor() {
+constructor() {
         super();
-        this.state = {
+    this.state = {
             editing: false
+        }
+        this.state = {
+            userId:"",
+            username:"",
+            userType:"",
+            email:"",
+            redirect:false
         }
     }
 
+    componentDidMount(){
+            this.setState({
+                userId: this.props.auth.user._id,
+                username: this.props.auth.name,
+                userType: this.props.auth.userType,
+                email:this.props.auth.email
+            })
+    }
+
+
+    handleInputChange = event => {
+        const value = event.target.value;
+        const name = event.target.name;
+
+        this.setState({
+            [name]: value
+        });
+    };
+
+    // handleUpdate = () => {
+    //     var loginUser = {
+    //         username: this.state.username.trim(),
+    //         password: this.state.password.trim(),
+    //         aboutMe:this.state.aboutMe
+    //     }
+    //
+    //     if(loginUser.username && loginUser.password){
+    //         UserService.updateUser(this.state.userId,loginUser).then(
+    //             user => this.setState({
+    //                 sessionUser: user
+    //             },()=>{
+    //                 this.setRedirect();
+    //             }))}
+    // };
+
 
     render () {
-        const { user } = this.props.auth;
 
-        console.log(user);
+        const { user } = this.props.auth;
+        console.log(this.user);
 
         const { classes } = this.props;
+
+        //this.user.name="hello";
 
 
         return(
@@ -53,23 +97,23 @@ class Profile extends Component {
                         <ul className='list-group'>
                             <li className='list-group-item'>Display Name:
                                 <input className='form-control'
-                                       value={user.name}
-                                       onChange="lol"
+                                       value={this.state.name}
+                                       onChange={this.handleInputChange}
                                 />
                             </li>
                             <li className='list-group-item'>Username: {user.email} (cannot change)</li>
                             <li className='list-group-item'>New password:
                                 <input className='form-control'
                                        type='password'
-                                       value={user.password}
-                                       onChange="hehe"
+                                       value={this.state.password}
+                                       onChange={this.handleInputChange}
                                 />
                             </li>
                             <li className='list-group-item'>Profile ID: {user._id} (cannot change)</li>
                             <li className='list-group-item'>Role:
-                                <select className='form-control' onChange="hi" value={user.userType}>
+                                <select className='form-control' onChange={this.handleInputChange} value={this.state.userType}>
                                     <option value='user'>User</option>
-                                    <option value='superuser'>Superuser</option>
+                                    <option value='superuser'>Trainer</option>
                                 </select>
                             </li>
                         </ul>
