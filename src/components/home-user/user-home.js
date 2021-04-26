@@ -96,6 +96,7 @@ function UserHome({user, logoutClick}) {
                         />
                     </LocalizationProvider>
 
+
                     {/*<Typography variant="h6"*/}
                     {/*            noWrap*/}
                     {/*            component={Paper}>*/}
