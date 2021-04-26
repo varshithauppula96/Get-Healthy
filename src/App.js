@@ -68,7 +68,7 @@ function App() {
                 <Route exact path="/profile" component={Profile} />
 
                 <Route path="/trainer" exact={true}  component={Trainer}/>
-                <Route path={["/home/user/:userID/searchingredient/", "/home/user/:userID/searchingredient/:title/"]}
+                <Route path={["/searchingredient/", "/searchingredient/:title/"]}
                        exact={true}>
                     <SearchIngredient/>
                 </Route>

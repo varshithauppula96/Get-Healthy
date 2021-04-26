@@ -4,31 +4,43 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { registerUser } from "../../actions/authActions";
 import classnames from "classnames";
+import userService, {findTrainers} from "../../services/home_user_services";
 
 class Register extends Component {
+    state = {
+        name: "",
+        email: "",
+        password: "",
+        password2: "",
+        gender:"",
+        dateOfBirth:"",
+        weightInKgs:"",
+        heightInCms:"",
+        userType:"",
+        trainers:[],
+        about:"",
+        trainerId: "",
+        errors: {}
+    };
     constructor() {
         super();
-        this.state = {
-            name: "",
-            email: "",
-            password: "",
-            password2: "",
-            gender:"",
-            dateOfBirth:"",
-            weightInKgs:"",
-            heightInCms:"",
-            userType:"",
-            trainer:"",
-            about:"",
-            errors: {}
-        };
     }
+
     componentDidMount() {
+        userService.findTrainers().then(trainers => {
+            console.log(trainers)
+            this.setState({trainers})
+            console.log(this.state)
+        })
+
+
         // If logged in and user navigates to Register page, should redirect them to dashboard
         if (this.props.auth.isAuthenticated) {
             this.props.history.push("/dashboard");
         }
+
     }
+
     componentWillReceiveProps(nextProps) {
         if (nextProps.errors) {
             this.setState({
@@ -51,7 +63,7 @@ class Register extends Component {
             weightInKgs:this.state. weightInKgs,
             heightInCms:this.state.heightInCms,
             userType:this.state.userType,
-            trainer:this.state.trainer,
+            trainerId:this.state.trainerId,
             about:this.state.about,
         };
         this.props.registerUser(newUser, this.props.history);
@@ -66,6 +78,7 @@ class Register extends Component {
                             <i className="material-icons left">keyboard_backspace</i> Back to
                             home
                         </Link>
+
                         <div className="col s12" style={{ paddingLeft: "11.250px" }}>
                             <h4>
                                 <b>Register</b> below
@@ -132,20 +145,7 @@ class Register extends Component {
                                 <span className="red-text">{errors.password2}</span>
 
                             </div>
-                            {/*<div className="input-field col s12">*/}
-                            {/*    <input*/}
-                            {/*        onChange={this.onChange}*/}
-                            {/*        value={this.state.gender}*/}
-                            {/*        error={errors.gender}*/}
-                            {/*        id="gender"*/}
-                            {/*        type="text"*/}
-                            {/*        className={classnames("", {*/}
-                            {/*            invalid: errors.gender*/}
-                            {/*        })}*/}
-                            {/*    />*/}
-                            {/*    <label htmlFor="gender">Gender</label>*/}
-                            {/*    <span className="red-text">{errors.gender}</span>*/}
-                            {/*</div>*/}
+
 
                             <div className="input-field col s12">
                                 <select error={errors.gender}
@@ -154,36 +154,15 @@ class Register extends Component {
                                             invalid: errors.gender
                                         })}
                                         value={this.state.value}  onChange={this.onChange}>
+                                    <option disabled selected value> -- select an option -- </option>
                                     <option value="Male">Male</option>
                                     <option value="Female">Female</option>
                                     <option value="Other">Other</option>
 
                                 </select>
-
-
-
-
                                 <label htmlFor="gender">Gender</label>
                                 <span className="red-text">{errors.gender}</span>
                             </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
                             <div className="input-field col s12">
@@ -200,6 +179,7 @@ class Register extends Component {
                                 <label htmlFor="dateOfBirth">Date of Birth</label>
                                 <span className="red-text">{errors.dateOfBirth}</span>
                             </div>
+
                             <div className="input-field col s12">
                                 <input
                                     onChange={this.onChange}
@@ -214,6 +194,7 @@ class Register extends Component {
                                 <label htmlFor="weightInKgs">Weight in Kgs</label>
                                 <span className="red-text">{errors.weightInKgs}</span>
                             </div>
+
                             <div className="input-field col s12">
                                 <input
                                     onChange={this.onChange}
@@ -230,26 +211,6 @@ class Register extends Component {
                                 }</span>
                             </div>
 
-
-
-
-
-
-                            {/*<div className="input-field col s12">*/}
-                            {/*    <input*/}
-                            {/*        onChange={this.onChange}*/}
-                            {/*        value={this.state.userType}*/}
-                            {/*        error={errors.userType}*/}
-                            {/*        id="userType"*/}
-                            {/*        type="text"*/}
-                            {/*        className={classnames("", {*/}
-                            {/*            invalid: errors.userType*/}
-                            {/*        })}*/}
-                            {/*    />*/}
-                            {/*    <label htmlFor="userType">UserType</label>*/}
-                            {/*    <span className="red-text">{errors.userType}</span>*/}
-                            {/*</div>*/}
-
                             <div className="input-field col s12">
                                 <select error={errors.userType}
                                         id="userType"
@@ -257,6 +218,7 @@ class Register extends Component {
                                             invalid: errors.userType
                                         })}
                                         value={this.state.value}  onChange={this.onChange}>
+                                    <option disabled selected value> -- select an option -- </option>
                                     <option value="User">User</option>
                                     <option value="Trainer">Trainer</option>
 
@@ -266,25 +228,25 @@ class Register extends Component {
                                 <span className="red-text">{errors.userType}</span>
                             </div>
 
-
-
-
-
-
                             <div className="input-field col s12">
-                                <input
-                                    onChange={this.onChange}
-                                    value={this.state.trainer}
-                                    error={errors.trainer}
-                                    id="trainer"
-                                    type="text"
-                                    className={classnames("", {
-                                        invalid: errors.trainer
-                                    })}
-                                />
-                                <label htmlFor="trainer">Trainer</label>
-                                <span className="red-text">{errors.trainer}</span>
+                                <select disabled={this.state.userType === "Trainer" ? true : false}
+                                        error={errors.trainerId}
+                                        id="trainerId"
+                                        className={classnames("", {
+                                            invalid: errors.trainerId
+                                        })}
+                                        value={this.state.value}  onChange={this.onChange}>
+                                    <option disabled selected value> -- select an option -- </option>
+                                    {
+                                        this.state.trainers.map((trainerId) => (
+                                            <option key={trainerId._id} value={trainerId._id}>{trainerId.name}</option>
+                                        ))
+                                    }
+                                </select>
+                                <label htmlFor="trainerId">Trainer</label>
+                                <span className="red-text">{errors.trainerId}</span>
                             </div>
+
                             <div className="input-field col s12">
                                 <input
                                     onChange={this.onChange}
@@ -299,6 +261,7 @@ class Register extends Component {
                                 <label htmlFor="about">Bio/About</label>
                                 <span className="red-text">{errors.about}</span>
                             </div>
+
                             <div className="col s12" style={{ paddingLeft: "11.250px" }}>
                                 <button
                                     style={{

@@ -20,24 +20,11 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-const MealTable = ({dateValue}) => {
+const MealTable = ({dateValue, user}) => {
     const classes = useStyles();
-
-    const {userID} = useParams()
 
     const [foodEntries, setFoodEntries] = useState([])
     const [calories, setCalories] = React.useState(0)
-
-    // const currentUserAndDate = (foodEntry) => {
-    //     const today = new Date()
-    //     const date = moment(dateValue, 'DD/MM/YYYY').format('YYYY-MM-DD') + "T"
-    //     console.log("Food entry", foodEntry)
-    //     if (foodEntry["userId"] === userID && foodEntry["createdAt"].toString().includes(date))
-    //     {
-    //         return true
-    //     }
-    //     return false
-    // }
 
     useEffect(() => {
         const date = moment(dateValue, 'DD/MM/YYYY').format('YYYY-MM-DD') + "T"
@@ -45,25 +32,23 @@ const MealTable = ({dateValue}) => {
         let calCount = 0
         // setCalories(0)
         // if (userID !== "" && userID !== undefined) {
-            FoodTrackerService.getAllFoodEntries().then(entries => {
-                newentries = (entries && entries.filter((entry) => {
-                        if (entry["userId"] === userID && entry["createdAt"].toString().includes(date)) {
-                            // setCalories(calories + entry.calories)
-                            calCount += entry.calories
-                            // console.log("mcmcmmc" + calories)
-                            return true
-                        }
-                    })
-                )
-                console.log(newentries)
-                setFoodEntries(newentries)
-                console.log(calCount)
-                setCalories(calCount)
-            })
+        FoodTrackerService.getAllFoodEntries().then(entries => {
+            newentries = (entries && entries.filter((entry) => {
+                    if (entry["userId"] === user._id && entry["createdAt"].toString().includes(date)) {
+                        calCount += entry.calories
+                        return true
+                    }
+                })
+            )
+            console.log(newentries)
+            setFoodEntries(newentries)
+            console.log(calCount)
+            setCalories(calCount)
+        })
         // } else {
         //     setFoodEntries([])
         // }
-    }, [userID, dateValue])
+    }, [user._id, dateValue])
 
     return (
 
@@ -76,7 +61,7 @@ const MealTable = ({dateValue}) => {
 
             <Typography variant={"h4"}>
                 Meal Table
-                <Link to={`/home/user/${userID}/searchingredient/`}>
+                <Link to={`/searchingredient/`}>
                     <AddCircle color={"error"}/>
                 </Link>
             </Typography>
@@ -90,6 +75,7 @@ const MealTable = ({dateValue}) => {
                     <th scope="col">Protein(per 100g)</th>
                     <th scope="col">Fat(per 100g)</th>
                     <th scope="col">Carbohydrates(per 100g)</th>
+                    <th scope="col"></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -102,13 +88,19 @@ const MealTable = ({dateValue}) => {
                             <>
                                 {
                                     entry &&
-                                    <tr>
+                                    <tr key={entry._id}
+                                        id={entry._id}>
                                         <td>{entry.label}</td>
                                         <td>{entry.weight}</td>
                                         <td>{entry.calories}</td>
                                         <td>{entry.protein}</td>
                                         <td>{entry.fat}</td>
                                         <td>{entry.carbohydrates}</td>
+                                        <td>
+                                            <button className={"btn btn-primary"}>
+                                                Delete
+                                            </button>
+                                        </td>
                                     </tr>
                                 }
                             </>

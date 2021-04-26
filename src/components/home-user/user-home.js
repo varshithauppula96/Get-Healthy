@@ -11,7 +11,6 @@ import TextField from '@material-ui/core/TextField';
 import AdapterDateFns from '@material-ui/lab/AdapterDateFns';
 import LocalizationProvider from '@material-ui/lab/LocalizationProvider';
 import DatePicker from '@material-ui/lab/DatePicker';
-import {Paper} from "@material-ui/core";
 import MealTable from "./meal-table";
 
 const drawerWidth = 240;
@@ -51,12 +50,11 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-function UserHome() {
+function UserHome({user, logoutClick}) {
     const classes = useStyles();
 
     const [mobileOpen, setMobileOpen] = React.useState(false);
     const [dateValue, setDateValue] = React.useState(new Date())
-    //const [totalCalories, setTotalCalories] = React.useState(0)
 
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
@@ -81,7 +79,7 @@ function UserHome() {
                 </Toolbar>
             </AppBar>
 
-            <NavSideBar mobileOpen={mobileOpen} handleDrawerToggle={handleDrawerToggle}/>
+            <NavSideBar mobileOpen={mobileOpen} handleDrawerToggle={handleDrawerToggle} logoutClick={logoutClick}/>
 
             <main className={classes.content}>
                 <div className={classes.toolbar}/>
@@ -106,7 +104,7 @@ function UserHome() {
                 </div>
 
                 <div>
-                    <MealTable dateValue={dateValue}/>
+                    <MealTable dateValue={dateValue} user={user}/>
                 </div>
             </main>
         </div>

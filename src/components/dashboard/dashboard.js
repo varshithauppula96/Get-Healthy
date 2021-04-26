@@ -2,10 +2,10 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
-import NavSideBar from "../home-user/nav-sidebar";
 import { withStyles } from '@material-ui/styles';
 import {makeStyles} from "@material-ui/core/styles";
-import Profile from "../profile/profile";
+import UserHome from "../home-user/user-home";
+import Trainer from "../trainer/trainer-home";
 
 const drawerWidth = 240;
 const initialValue = new Date();
@@ -54,9 +54,9 @@ class Dashboard extends Component {
         }
     }
 
-        handleDrawerToggle = () => {
-            this.props.mobileOpen = !this.props.mobileOpen
-        };
+    handleDrawerToggle = () => {
+        this.props.mobileOpen = !this.props.mobileOpen
+    };
 
     onLogoutClick = e => {
         e.preventDefault()
@@ -69,20 +69,21 @@ class Dashboard extends Component {
     };
 
     render() {
-        const { user } = this.props.auth;
-        console.log(user);
-        const { classes } = this.props;
+        const {user} = this.props.auth;
+        console.log(user)
+        const {classes} = this.props;
 
         return (
             <div>
-                <NavSideBar mobileOpen={this.props.mobileOpen} handleDrawerToggle={this.handleDrawerToggle} logoutClick={this.onLogoutClick}/>
-
-                {/*<p>*/}
-                {/*    user.name;*/}
-                {/*    */}
-                {/*</p>*/}
+                {
+                    user.userType === "User" &&
+                    <UserHome user={user} logoutClick={this.onLogoutClick}/>
+                }
+                {
+                    user.userType === "Trainer" &&
+                    <Trainer user={user} logoutClick={this.onLogoutClick}/>
+                }
             </div>
-
         );
     }
 }

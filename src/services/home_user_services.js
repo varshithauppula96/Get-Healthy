@@ -1,8 +1,10 @@
 const USERS_URL = "http://localhost:5000/api/users";
 const TRAINER_URL ="http://localhost:5000/api/users/trainers";
+
 export const findAllUsers = () =>
     fetch(USERS_URL)
         .then(response => response.json())
+
 export const findTrainers =() =>
     fetch(TRAINER_URL).then(response =>response.json())
 
@@ -11,9 +13,11 @@ export const deleteUser = (userId) =>
         method: 'DELETE'
     })
         .then(response => response.json())
+
 export const findUserById = (userId) =>
     fetch(`${USERS_URL}/${userId}`)
         .then(response => response.json())
+
 export const createUser = (user) =>
     fetch(USERS_URL, {
         method: 'POST',
@@ -23,6 +27,7 @@ export const createUser = (user) =>
         }
     })
         .then(response => response.json())
+
 export const updateUser = (userId,user) =>
     fetch(`${USERS_URL}/${userId}`, {
         method: 'PUT',
@@ -33,14 +38,32 @@ export const updateUser = (userId,user) =>
     })
         .then(response => response.json())
 
+const getTrainees = (trainerId) =>
+    fetch(`${USERS_URL}/${trainerId}/trainees`)
+        .then(response => response.json())
+
+const updateProfile = (userId,user) => {
+    return fetch(`${USERS_URL}/${userId}`, {
+        method: 'PUT',
+        body: JSON.stringify(user),
+        headers: {
+            'content-type': 'application/json'
+        }
+    })
+        .then(response => response.json())
+}
+
 const api = {
     findAllUsers: findAllUsers,
     deleteUser: deleteUser,
     createUser,
     updateUser,
     findUserById,
-    findTrainers
+    findTrainers,
+    getTrainees,
+    updateProfile
 }
+
 export default api;
 
 

@@ -3,12 +3,10 @@ import {Link} from 'react-router-dom';
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {logoutUser} from "../../actions/authActions";
-
 class Profile extends Component {
-
-constructor() {
+    constructor() {
         super();
-    this.state = {
+        this.state = {
             editing: false
         }
         this.state = {
@@ -19,26 +17,22 @@ constructor() {
             redirect:false
         }
     }
-
     componentDidMount(){
-            this.setState({
-                userId: this.props.auth.user._id,
-                username: this.props.auth.name,
-                userType: this.props.auth.userType,
-                email:this.props.auth.email
-            })
+        this.setState({
+            userId: this.props.auth.user._id,
+            username: this.props.auth.name,
+            userType: this.props.auth.userType,
+            email:this.props.auth.email
+        })
     }
-
 
     handleInputChange = event => {
         const value = event.target.value;
         const name = event.target.name;
-
         this.setState({
             [name]: value
         });
     };
-
     // handleUpdate = () => {
     //     var loginUser = {
     //         username: this.state.username.trim(),
@@ -55,26 +49,24 @@ constructor() {
     //             }))}
     // };
 
-
     render () {
-
         const { user } = this.props.auth;
-        console.log(this.user);
-
+        console.log("User===" + this.user);
         const { classes } = this.props;
-
-        //this.user.name="hello";
-
 
         return(
             <div className='container-fluid'>
                 <h1>Profile</h1>
-                {!user &&
+                {
+                    user===undefined &&
                 <>
-                    <div className='alert alert-warning'>
-                        Not logged in
-                    </div>
-                    <Link className='btn btn-outline-primary' to='/login'>Go to login page</Link>
+                    {
+                        alert("Not logged In")
+                    }
+                    {/*<div className='alert alert-warning'>*/}
+                    {/*    Not logged in*/}
+                    {/*</div>*/}
+                    {/*<Link className='btn btn-outline-primary' to='/login'>Go to login page</Link>*/}
                 </>
                 }
                 {
@@ -88,7 +80,6 @@ constructor() {
                             <li className='list-group-item'>Profile ID: {user._id}</li>
                             <li className='list-group-item'>Role: {user.userType}</li>
                         </ul>
-
                     </div>
                 }
                 {
@@ -126,16 +117,13 @@ constructor() {
         )
     }
 }
-
 Profile.propTypes = {
     logoutUser: PropTypes.func.isRequired,
     auth: PropTypes.object.isRequired
 };
-
 const mapStateToProps = state => ({
     auth: state.auth
 });
-
 export default connect(
     mapStateToProps,
     { logoutUser }

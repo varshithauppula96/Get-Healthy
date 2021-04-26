@@ -5,9 +5,6 @@ import Drawer from "@material-ui/core/Drawer";
 import Divider from "@material-ui/core/Divider";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
-import InboxIcon from "@material-ui/icons/MoveToInbox";
-import MailIcon from "@material-ui/icons/Mail";
 import ListItemText from "@material-ui/core/ListItemText";
 import {makeStyles, useTheme} from "@material-ui/core/styles";
 
@@ -42,10 +39,17 @@ const NavSideBar = (props) => {
             <Divider/>
             <List>
                 <ListItem button key={"dashboard"}>
-                    <ListItemText primary="Dashboard"/>
+                    {
+                        document.URL.endsWith("dashboard") &&
+                        <ListItemText primary="Dashboard"/>
+                    }
+                    {
+                        !document.URL.endsWith("dashboard") &&
+                        <Link to={"/dashboard"}>Dashboard</Link>
+                    }
                 </ListItem>
                 <ListItem button key={"profile"}>
-                    <Link to={"profile"}>Profile</Link>
+                    <Link to={"/profile"}>Profile</Link>
                 </ListItem>
                 <ListItem button key={"logout"} onClick={props.logoutClick}>
                     <ListItemText primary="Logout"/>
