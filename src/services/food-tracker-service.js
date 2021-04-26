@@ -18,10 +18,16 @@ const createFoodEntry = (foodObj) =>
     })
         .then(response => response.json());
 
+const deleteFoodEntry = (fid) => {
+    fetch(`${FOOD_TRACKER_URL}/${fid}`,
+        {method: "DELETE"}).then(response => response.json())
+}
+
 const FoodTrackerService = {
     getAllFoodEntries,
     getFoodEntryById,
-    createFoodEntry
+    createFoodEntry,
+    deleteFoodEntry
 }
 
-export default FoodTrackerService;
+export default FoodTrackerService

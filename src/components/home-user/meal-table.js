@@ -11,6 +11,7 @@ import DatePicker from "@material-ui/lab/DatePicker";
 import TextField from "@material-ui/core/TextField";
 import {Paper} from "@material-ui/core";
 import {makeStyles} from "@material-ui/core/styles";
+import FeedbackService from "../../services/feedback-service";
 
 const useStyles = makeStyles((theme) => ({
     horizontalItems: {
@@ -50,6 +51,26 @@ const MealTable = ({dateValue, user}) => {
         // }
     }, [user._id, dateValue])
 
+    const removeFoodEntry = (fId) =>{
+        FoodTrackerService.deleteFoodEntry(fId)
+        const date = moment(dateValue, 'DD/MM/YYYY').format('YYYY-MM-DD') + "T"
+        let newentries = []
+        let calCount = 0
+        FoodTrackerService.getAllFoodEntries().then(entries => {
+            newentries = (entries && entries.filter((entry) => {
+                    if (entry["userId"] === user._id && entry["createdAt"].toString().includes(date)) {
+                        calCount += entry.calories
+                        return true
+                    }
+                })
+            )
+            console.log(newentries)
+            setFoodEntries(newentries)
+            console.log(calCount)
+            setCalories(calCount)
+        })
+    }
+
     return (
 
         <>
@@ -61,7 +82,7 @@ const MealTable = ({dateValue, user}) => {
 
             <Typography variant={"h4"}>
                 Meal Table
-                <Link to={`/searchingredient/`}>
+                <Link to={`/dashboard/${user._id}/searchingredient/`}>
                     <AddCircle color={"error"}/>
                 </Link>
             </Typography>
@@ -97,7 +118,8 @@ const MealTable = ({dateValue, user}) => {
                                         <td>{entry.fat}</td>
                                         <td>{entry.carbohydrates}</td>
                                         <td>
-                                            <button className={"btn btn-primary"}>
+                                            <button className={"btn btn-primary"}
+                                            onClick={() => removeFoodEntry(entry._id)}>
                                                 Delete
                                             </button>
                                         </td>
