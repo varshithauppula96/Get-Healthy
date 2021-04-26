@@ -22,6 +22,7 @@ import PrivateRoute from "./private-route/privateRoute";
 import Dashboard from "./components/dashboard/dashboard";
 import SearchIngredient from "./components/home-user/search-ingredient";
 import Profile from "./components/profile/profile";
+import TrainerFollower from "./components/trainer/trainer-follower";
 
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
@@ -68,11 +69,10 @@ function App() {
                 <Route exact path="/profile" component={Profile} />
 
                 <Route path="/trainer" exact={true}  component={Trainer}/>
-                <Route path={["/searchingredient/", "/searchingredient/:title/"]}
-                       exact={true}>
-                    <SearchIngredient/>
-                </Route>
+                <Route path="/trainees" exact={true}  component={TrainerFollower}/>
 
+                <Route path={["/searchingredient/", "/searchingredient/:title/"]}
+                       exact={true} component={SearchIngredient}/>
             </div>
 
         </BrowserRouter>

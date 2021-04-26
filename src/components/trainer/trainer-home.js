@@ -4,6 +4,7 @@ import {Link, useParams} from "react-router-dom";
 import UserService from "../../services/home_user_services"
 import FeedbackService from "../../services/feedback-service";
 import UserHome from "../home-user/user-home";
+import {Button} from "@material-ui/core";
 
 const Trainer = ({user, logoutClick}) => {
     const[fields,setFieldValue] = useState([]);
@@ -42,6 +43,7 @@ const Trainer = ({user, logoutClick}) => {
                                         <h4 className="mt-0 mb-0">
                                             {user["name"]}
                                         </h4>
+                                        <button className={"float-right"} onClick={logoutClick}>Logout</button>
                                         <p className="small mb-4"><i className="fas fa-map-marker-alt mr-2"></i>Boston
                                         </p>
                                     </div>
@@ -52,12 +54,12 @@ const Trainer = ({user, logoutClick}) => {
                                     <li className="list-inline-item">
                                         <h5 className="font-weight-bold mb-0 d-block">{feedbackCount}</h5>
                                         <i className="fas fa-comment text-muted mr-1"></i>
-                                        <a href="#" className="text-muted">Feedbacks Given</a>
+                                        <a href="" className="text-muted">Feedbacks Given</a>
                                     </li>
                                     <li className="list-inline-item">
                                         <h5 className="font-weight-bold mb-0 d-block">{trainees.length}</h5>
                                         <i className="fas fa-user text-muted mr-1"></i>
-                                        <Link to={`/home/user/${user._id}/trainees`} className="text-muted">Trainees</Link>
+                                        <Link to={`/trainees`} className="text-muted">Trainees</Link>
                                     </li>
                                 </ul>
                             </div>
@@ -67,8 +69,6 @@ const Trainer = ({user, logoutClick}) => {
                                       className="btn btn-outline-dark btn-sm float-right">Edit
                                     profile</Link>
                                 <div className="p-4 rounded shadow-sm bg-light">
-                                    {/*<p className="font-italic mb-0">Birthday : March 6</p>*/}
-                                    {/*<p className="font-italic mb-0">Phone : 999999999</p>*/}
                                     <p className="font-italic mb-0">Email : {user["email"]}</p>
                                     <p className="font-italic mb-0">DOB : {user["dateOfBirth"]}</p>
                                     <p className="font-italic mb-0">Gender : {user["gender"]}</p>
