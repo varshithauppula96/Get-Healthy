@@ -21,7 +21,7 @@ const Recipe=() =>{
 
                     <p className="card-text">Get access to various diet plans and recipes videos</p>
 
-                    <a href="/search/" className="btn btn-primary">Know more</a>
+                    <a href="/search/" className="btn btn-secondary">Know more</a>
 
                 </div>
 

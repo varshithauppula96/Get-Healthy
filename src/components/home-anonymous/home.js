@@ -45,7 +45,7 @@ Reviews =() =>{
     Recipe =() => {
     this.setState({CaloriesRender: false});
     this.setState({CoachingRender: false});
-    
+
     this.setState({RecipeRender:!this.state.RecipeRender});
 }
     render() {
@@ -54,7 +54,7 @@ Reviews =() =>{
                 <div>
 
                     
-                    <nav className="  p-3 navbar navbar-light" style={{backgroundColor: "#73583e"}}>
+                    <nav className="  p-3 navbar navbar-light" style={{backgroundColor: "#808080"}}>
 
                         <a className="navbar-brand" href="#">
                             <i className="fa fa-heartbeat fa-2x"></i>
@@ -88,10 +88,7 @@ Reviews =() =>{
 
                     </div>
                     <div className="m-3 p-3 text-center">
-<div >
-   <h1> GetHealthy delivers results</h1>
-    <p>Fromm weight loss to reversing lifestyle conditions, GetHealthy has transformed over millions of lives.</p>
-</div>
+
 <div>
    <h1> Our Success stories</h1>
 

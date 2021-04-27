@@ -21,7 +21,7 @@ const Coaching =() =>{
                     <p className="card-text">We Understand there is no one size fits all. Our nutritionists
                     and fitness trainers will create diet and workout plans that will help YOU achieve your goal!</p>
 
-                    <a href="#" className="btn btn-primary">Know more</a>
+                    <a href="#" className="btn btn-secondary">Know more</a>
 
                 </div>
 

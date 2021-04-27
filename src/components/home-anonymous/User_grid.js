@@ -4,6 +4,8 @@ import {Link} from "react-router-dom";
 
 
 const UserGrid =({users})=>{
+    let count =users.length;
+
     return(
         <div>
 
@@ -11,7 +13,8 @@ const UserGrid =({users})=>{
 
 
                 {
-                    users.slice(0,3).map( user =>
+
+                    users.slice(count-3,count).map( user =>
                         <UserCard
                             key={user._id}
 

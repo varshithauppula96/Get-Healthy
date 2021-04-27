@@ -23,7 +23,7 @@ const Calories =() =>{
                     <p className="card-text">Track your progress by tracking your food intake, water consumption,workouts and much more
                     to stay on track.</p>
 
-                    <a href="/sign-up" className="btn btn-primary">Know more</a>
+                    <a href="/sign-up" className="btn btn-secondary">Know more</a>
 
                 </div>
 
