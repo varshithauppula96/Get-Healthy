@@ -71,195 +71,230 @@ class Register extends Component {
     render() {
         const { errors } = this.state;
         return (
-            <div className="container">
-                <div className="row">
-                    <div className="col s8 offset-s2">
-                        <Link to="/" className="btn-flat waves-effect">
-                            <i className="material-icons left">keyboard_backspace</i> Back to
-                            home
-                        </Link>
+            <div className="p-5 m-5 border border-info container-fill">
+                <h1>Sign Up</h1>
+                <Link to="/" >
+                    <i ></i> Home
+                </Link>
+                <br/>
 
-                        <div className="col s12" style={{ paddingLeft: "11.250px" }}>
-                            <h4>
-                                <b>Register</b> below
-                            </h4>
-                            <p className="grey-text text-darken-1">
-                                Already have an account? <Link to="/login">Log in</Link>
-                            </p>
-                        </div>
+                <p className="grey-text text-darken-1">
+                    Already have an account? <Link to="/login">Log in</Link>
+                </p>
+
+
+
                         <form noValidate onSubmit={this.onSubmit}>
-                            <div className="input-field col s12">
-                                <input
-                                    onChange={this.onChange}
-                                    value={this.state.name}
-                                    error={errors.name}
-                                    id="name"
-                                    type="text"
-                                    className={classnames("", {
-                                        invalid: errors.name
-                                    })}
-                                />
-                                <label htmlFor="name">Name</label>
-                                <span className="red-text">{errors.name}</span>
-                            </div>
-                            <div className="input-field col s12">
-                                <input
-                                    onChange={this.onChange}
-                                    value={this.state.email}
-                                    error={errors.email}
-                                    id="email"
-                                    type="email"
-                                    className={classnames("", {
-                                        invalid: errors.email
-                                    })}
-                                />
-                                <label htmlFor="email">Email</label>
-                                <span className="red-text">{errors.email}</span>
-                            </div>
-                            <div className="input-field col s12">
-                                <input
-                                    onChange={this.onChange}
-                                    value={this.state.password}
-                                    error={errors.password}
-                                    id="password"
-                                    type="password"
-                                    className={classnames("", {
-                                        invalid: errors.password
-                                    })}
-                                />
-                                <label htmlFor="password">Password</label>
-                                <span className="red-text">{errors.password}</span>
-                            </div>
-                            <div className="input-field col s12">
-                                <input
-                                    onChange={this.onChange}
-                                    value={this.state.password2}
-                                    error={errors.password2}
-                                    id="password2"
-                                    type="password"
-                                    className={classnames("", {
-                                        invalid: errors.password2
-                                    })}
-                                />
-                                <label htmlFor="password2">Confirm Password</label>
-                                <span className="red-text">{errors.password2}</span>
-
-                            </div>
-
-
-                            <div className="input-field col s12">
-                                <select error={errors.gender}
-                                        id="gender"
-                                        className={classnames("", {
-                                            invalid: errors.gender
+                            <div className="form-group row">
+                                <label className="col-sm-2 col-form-label" htmlFor="name"> Name </label>
+                                <div className="col-sm-10">
+                                    <input
+                                        onChange={this.onChange}
+                                        value={this.state.name}
+                                        error={errors.name}
+                                        id="name"
+                                        type="text"
+                                        className={classnames("col-sm-10", {
+                                            invalid: errors.name
                                         })}
-                                        value={this.state.value}  onChange={this.onChange}>
-                                    <option disabled selected value> -- select an option -- </option>
-                                    <option value="Male">Male</option>
-                                    <option value="Female">Female</option>
-                                    <option value="Other">Other</option>
+                                    />
 
-                                </select>
-                                <label htmlFor="gender">Gender</label>
-                                <span className="red-text">{errors.gender}</span>
+                                    <span className="red-text">{errors.name}</span>
+                                </div>
+
+
+
                             </div>
 
 
-                            <div className="input-field col s12">
-                                <input
-                                    onChange={this.onChange}
-                                    value={this.state.dateOfBirth}
-                                    error={errors.dateOfBirth}
-                                    id="dateOfBirth"
-                                    type="date"
-                                    className={classnames("", {
-                                        invalid: errors.dateOfBirth
-                                    })}
-                                />
-                                <label htmlFor="dateOfBirth">Date of Birth</label>
-                                <span className="red-text">{errors.dateOfBirth}</span>
-                            </div>
-
-                            <div className="input-field col s12">
-                                <input
-                                    onChange={this.onChange}
-                                    value={this.state.weightInKgs}
-                                    error={errors.weightInKgs}
-                                    id="weightInKgs"
-                                    type="text"
-                                    className={classnames("", {
-                                        invalid: errors.weightInKgs
-                                    })}
-                                />
-                                <label htmlFor="weightInKgs">Weight in Kgs</label>
-                                <span className="red-text">{errors.weightInKgs}</span>
-                            </div>
-
-                            <div className="input-field col s12">
-                                <input
-                                    onChange={this.onChange}
-                                    value={this.state.heightInCms}
-                                    error={errors.heightInCms}
-                                    id="heightInCms"
-                                    type="text"
-                                    className={classnames("", {
-                                        invalid: errors.heightInCms
-                                    })}
-                                />
-                                <label htmlFor="heightInCms">Height in Cms</label>
-                                <span className="red-text">{errors.heightInCms
-                                }</span>
-                            </div>
-
-                            <div className="input-field col s12">
-                                <select error={errors.userType}
-                                        id="userType"
-                                        className={classnames("", {
-                                            invalid: errors.userType
+                            <div className="form-group row">
+                                <label className="col-sm-2 col-form-label" htmlFor="email">Email</label>
+                                <div className="col-sm-10">
+                                    <input
+                                        onChange={this.onChange}
+                                        value={this.state.email}
+                                        error={errors.email}
+                                        id="email"
+                                        type="email"
+                                        className={classnames("col-sm-10", {
+                                            invalid: errors.email
                                         })}
-                                        value={this.state.value}  onChange={this.onChange}>
-                                    <option disabled selected value> -- select an option -- </option>
-                                    <option value="User">User</option>
-                                    <option value="Trainer">Trainer</option>
+                                    />
 
-
-                                </select>
-                                <label htmlFor="userType">UserType</label>
-                                <span className="red-text">{errors.userType}</span>
+                                    <span className="red-text">{errors.email}</span>
+                                </div>
                             </div>
-
-                            <div className="input-field col s12">
-                                <select disabled={this.state.userType === "Trainer" ? true : false}
-                                        error={errors.trainerId}
-                                        id="trainerId"
-                                        className={classnames("", {
-                                            invalid: errors.trainerId
+                            <div className="form-group row">
+                                <label className="col-sm-2 col-form-label" htmlFor="password">Password</label>
+                                <div className="col-sm-10">
+                                    <input
+                                        onChange={this.onChange}
+                                        value={this.state.password}
+                                        error={errors.password}
+                                        id="password"
+                                        type="password"
+                                        className={classnames("col-sm-10", {
+                                            invalid: errors.password
                                         })}
-                                        value={this.state.value}  onChange={this.onChange}>
-                                    <option disabled selected value> -- select an option -- </option>
-                                    {
-                                        this.state.trainers.map((trainerId) => (
-                                            <option key={trainerId._id} value={trainerId._id}>{trainerId.name}</option>
-                                        ))
-                                    }
-                                </select>
-                                <label htmlFor="trainerId">Trainer</label>
-                                <span className="red-text">{errors.trainerId}</span>
+                                    />
+
+                                    <span className="red-text">{errors.password}</span>
+                                </div>
+                            </div>
+                            <div className="form-group row">
+                                <label className="col-sm-2 col-form-label" htmlFor="password2">Confirm Password</label>
+                                <div className="col-sm-10">
+                                    <input
+                                        onChange={this.onChange}
+                                        value={this.state.password2}
+                                        error={errors.password2}
+                                        id="password2"
+                                        type="password"
+                                        className={classnames("col-sm-10", {
+                                            invalid: errors.password2
+                                        })}
+                                    />
+
+                                    <span className="red-text">{errors.password2}</span>
+                                </div>
                             </div>
 
-                            <div className="input-field col s12">
-                                <input
-                                    onChange={this.onChange}
-                                    value={this.state.about}
-                                    error={errors.about}
-                                    id="about"
-                                    type="about"
-                                    className={classnames("", {
-                                        invalid: errors.about
-                                    })}
-                                />
-                                <label htmlFor="about">Bio/About</label>
-                                <span className="red-text">{errors.about}</span>
+
+                            <div className="form-group row">
+                                <label className="col-sm-2 col-form-label" htmlFor="password2">Confirm Password</label>
+                                <div className="col-sm-10">
+                                    <select error={errors.gender}
+                                            id="gender"
+                                            className={classnames("col-sm-10", {
+                                                invalid: errors.gender
+                                            })}
+                                            value={this.state.value}  onChange={this.onChange}>
+                                        <option disabled selected value> -- select an option -- </option>
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                        <option value="Other">Other</option>
+
+                                    </select>
+
+                                    <span className="red-text">{errors.gender}</span>
+                                </div>
+                            </div>
+
+                            <div className="form-group row">
+                                <label className="col-sm-2 col-form-label" htmlFor="dateOfBirth">Date of Birth</label>
+                                <div className="col-sm-10">
+                                    <input
+                                        onChange={this.onChange}
+                                        value={this.state.dateOfBirth}
+                                        error={errors.dateOfBirth}
+                                        id="dateOfBirth"
+                                        type="date"
+                                        className= {classnames("col-sm-10", {
+                                            invalid: errors.dateOfBirth
+                                        })}
+                                    />
+
+                                    <span className="red-text">{errors.dateOfBirth}</span>
+                                </div>
+                            </div>
+
+                            <div className="form-group row">
+                                <label className="col-sm-2 col-form-label" htmlFor="weightInKgs">Weight in Kgs</label>
+                                <div className="col-sm-10">
+                                    <input
+                                        onChange={this.onChange}
+                                        value={this.state.weightInKgs}
+                                        error={errors.weightInKgs}
+                                        id="weightInKgs"
+                                        type="text"
+                                        className={classnames("col-sm-10", {
+                                            invalid: errors.weightInKgs
+                                        })}
+                                    />
+
+                                    <span className="red-text">{errors.weightInKgs}</span>
+                                </div>
+                            </div>
+
+                            <div className="form-group row">
+                                <label className="col-sm-2 col-form-label" htmlFor="heightInCms">Height in Cms</label>
+                                <div className="col-sm-10">
+                                    <input
+                                        onChange={this.onChange}
+                                        value={this.state.heightInCms}
+                                        error={errors.heightInCms}
+                                        id="heightInCms"
+                                        type="text"
+                                        className={classnames("col-sm-10", {
+                                            invalid: errors.heightInCms
+                                        })}
+                                    />
+
+                                    <span className="red-text">{errors.heightInCms
+                                    }</span>
+                                </div>
+                            </div>
+
+                            <div className="form-group row">
+                                <label className="col-sm-2 col-form-label" htmlFor="userType">UserType</label>
+                                <div className="col-sm-10">
+                                    <select error={errors.userType}
+                                            id="userType"
+                                            className={classnames("col-sm-10", {
+                                                invalid: errors.userType
+                                            })}
+                                            value={this.state.value}  onChange={this.onChange}>
+                                        <option disabled selected value> -- select an option -- </option>
+                                        <option value="User">User</option>
+                                        <option value="Trainer">Trainer</option>
+
+
+                                    </select>
+
+                                    <span className="red-text">{errors.userType}</span>
+                                </div>
+                            </div>
+
+                            <div className="form-group row">
+
+                                <label className="col-sm-2 col-form-label"  htmlFor="trainerId">Trainer</label>
+                                <div className="col-sm-10">
+
+                                    <select disabled={this.state.userType === "Trainer" ? true : false}
+                                            error={errors.trainerId}
+                                            id="trainerId"
+                                            className={classnames("col-sm-10", {
+                                                invalid: errors.trainerId
+                                            })}
+                                            value={this.state.value}  onChange={this.onChange}>
+                                        <option disabled selected value> -- select an option -- </option>
+                                        {
+                                            this.state.trainers.map((trainerId) => (
+                                                <option key={trainerId._id} value={trainerId._id}>{trainerId.name}</option>
+                                            ))
+                                        }
+                                    </select>
+
+                                    <span className="red-text">{errors.trainerId}</span>
+                                </div>
+                            </div>
+
+                            <div className="form-group row">
+                                <label  className="col-sm-2 col-form-label" htmlFor="about">Bio/About</label>
+                                <div className="col-sm-10">
+                                    <input
+                                        onChange={this.onChange}
+                                        value={this.state.about}
+                                        error={errors.about}
+                                        id="about"
+                                        type="about"
+                                        className={classnames("col-sm-10", {
+                                            invalid: errors.about
+                                        })}
+                                    />
+
+                                    <span className="red-text">{errors.about}</span>
+                                </div>
                             </div>
 
                             <div className="col s12" style={{ paddingLeft: "11.250px" }}>
@@ -277,8 +312,7 @@ class Register extends Component {
                                 </button>
                             </div>
                         </form>
-                    </div>
-                </div>
+
             </div>
         );
     }
