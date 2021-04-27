@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import {Link, useParams, useHistory} from "react-router-dom";
 import recipeService from "../../servers/recipe-service"
+import Navbar from "../home-anonymous/navbar";
 const SearchScreen = () => {
     const history = useHistory()
     const {title} = useParams()
@@ -24,9 +25,12 @@ const SearchScreen = () => {
             })
     }
     return(
-        <div>
-            <a href={"/home"}>Back to home page</a>
-            <h2>Search Screen</h2>
+        <div >
+           <Navbar/>
+<br/>
+<div className="container">
+            <h2 className="row justify-content-center">Search A Recipe</h2>
+
             <div className="row">
                 <div className="col-9">
                     <input value={searchTitle}
@@ -40,7 +44,7 @@ const SearchScreen = () => {
                         onClick={() => {
                             findRecipeByTitle(searchTitle)
                         }}
-                        className="btn btn-primary btn-block">
+                        className="btn btn-dark text-white btn-block">
                         Search
                     </button>
                 </div>
@@ -56,7 +60,7 @@ const SearchScreen = () => {
                     recipes.map((recipe) =>
                     {
                         return (
-                            <li className="list-group-item" key={(recipe["recipe"]["uri"]).split("recipe_")[1]}>
+                            <li className=" text-dark list-group-item " key={(recipe["recipe"]["uri"]).split("recipe_")[1]}>
                                 <Link to = {`/details/${(recipe["recipe"]["uri"]).split("recipe_")[1]}`}>
                                     {recipe["recipe"]["label"]} </Link>
                             </li>
@@ -85,6 +89,7 @@ const SearchScreen = () => {
                 {/*//     })*/}
                 {/* }*/}
             </ul>
+        </div>
         </div>
     )
 }

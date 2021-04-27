@@ -79,16 +79,11 @@
     }
 }
 
-.navbar-brand {
-    font-size:xx-large;
-    font-weight: bold;
-    font-family: Muli;
 
-}
 
-.navbar-nav {
-    font-size: xx-large;
-    padding: 0rem 3rem;
+#navbar-getHealthy {
+
+    font-weight: bold
 }
 
 .nav-item {
@@ -132,9 +127,7 @@ table .col {
     font-size: 50px !important;
 }
 
-.navbar-nav {
-    text-shadow: darkgray;
-}
+
 
 body {
     margin: 0;

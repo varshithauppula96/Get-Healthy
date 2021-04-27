@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { loginUser } from "../../actions/authActions";
 import classnames from "classnames";
+import Navbar from "../home-anonymous/navbar";
 class Login extends Component {
     constructor() {
         super();
@@ -44,16 +45,13 @@ class Login extends Component {
     render() {
         const { errors } = this.state;
         return (
+            <div>
+                <Navbar/>
             <div className="p-5 m-5 bg-secondary  text-white container-fill">
                 <h1>Sign Up</h1>
-                <Link to="/" >
-                    <i ></i> Home
-                </Link>
+
                 <br/>
 
-                <p className="grey-text text-darken-1">
-                    Already have an account? <Link to="/login">Log in</Link>
-                </p>
                         <form noValidate onSubmit={this.onSubmit}>
 
                             <div className="form-group row">
@@ -114,7 +112,7 @@ class Login extends Component {
                             </div>
                         </form>
                     </div>
-
+            </div>
         );
     }
 }
