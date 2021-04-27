@@ -69,11 +69,17 @@ Reviews =() =>{
     </span>
                         </div>
 
-                        {<img className="container-fluid" src="https://picsum.photos/id/429/1250/500"/>}
-                    </nav>
 
-                    <h1 className=" m-3 p-3 text-center">Here's how we work</h1>
+                    </nav>
+                    <br/>
+
+                    {<img className="container-fluid" src="https://picsum.photos/id/429/1250/500"/>}
+                <br/>
+                <br/>
+                <br/>
                     <div className="text-center">
+
+                        <h1 className="  text-center">Here's How We Work</h1>
 
                         <button onClick={this.CountCalories} className=" m-3 p-3 fas fa-utensils">Calorie counting</button>
 
@@ -90,9 +96,8 @@ Reviews =() =>{
                     <div className="m-3 p-3 text-center">
 
 <div>
+<br/>
    <h1> Our Success Stories</h1>
-
-
     <UserStories/>
 
 
