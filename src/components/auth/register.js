@@ -298,7 +298,7 @@ class Register extends Component {
                             </div>
 
                             <div className="col text-center" >
-                                <div
+                                <button
                                     style={{
                                         width: "150px",
                                         borderRadius: "3px",
@@ -310,7 +310,7 @@ class Register extends Component {
                                     className="btn btn-light  waves-effect waves-light hoverable blue accent-3"
                                 >
                                     Sign up
-                                </div>
+                                </button>
                             </div>
                         </form>
 
