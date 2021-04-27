@@ -3,7 +3,7 @@ import Calories from "./calories";
 import Coaching from "./coaching";
 import FooterPage from "./footer";
 import Recipe from "./recipe";
-
+import Navbar from "./navbar";
 import {Link} from "react-router-dom";
 import UserStories from "./user-stories";
 
@@ -53,27 +53,10 @@ Reviews =() =>{
             <>
                 <div>
 
-                    
-                    <nav className="  p-3 navbar navbar-light" style={{backgroundColor: "#808080"}}>
-
-                        <a className="navbar-brand" href="#">
-                            <i className="fa fa-heartbeat fa-2x"></i>
-                            <span>GetHealthy</span>
-                        </a>
-                        <div className="float-right">
-                            <span><button className="m-3"> <a href= "/register">
-                            Sign up</a></button>
-
-                            <button> <a href = "/login">
-                                Sign in</a></button>
-    </span>
-                        </div>
-
-
-                    </nav>
+                  <Navbar/>
                     <br/>
 
-                    {<img className="container-fluid" src="https://picsum.photos/id/429/1250/500"/>}
+                    {<img className="container-fluid" src="https://picsum.photos/id/1060/1250/500"/>}
                 <br/>
                 <br/>
                 <br/>
@@ -97,7 +80,8 @@ Reviews =() =>{
 
 <div>
 <br/>
-   <h1> Our Success Stories</h1>
+   <h1 className = " pb-3 mb-3"> Our Success Stories</h1>
+
     <UserStories/>
 
 

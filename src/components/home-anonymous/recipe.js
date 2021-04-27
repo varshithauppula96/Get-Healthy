@@ -9,7 +9,7 @@ const Recipe=() =>{
 
 
                 <div className="view overlay">
-                    {<img className="card-img-top" src="https://picsum.photos/id/1060/1250/500"/>}
+                    {<img className="card-img-top" src="https://picsum.photos/id/429/1250/500"/>}
                     <a href="#">
                         <div className="mask rgba-white-slight"></div>
                     </a>

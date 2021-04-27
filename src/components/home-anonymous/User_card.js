@@ -38,7 +38,7 @@ const UserCard = (
                     </h5>
                     <p className="card-text">{user.about}</p>
                    <p><b>Weight:</b> {user.weightInKgs}Kg</p>
-                    <p><b>Height:</b>{user.heightInCms}Cm</p>
+                    <p><b>Height: </b>{user.heightInCms}Cm</p>
 
                 </div>
             </div>
