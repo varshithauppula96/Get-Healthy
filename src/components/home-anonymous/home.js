@@ -90,7 +90,7 @@ Reviews =() =>{
                     <div className="m-3 p-3 text-center">
 
 <div>
-   <h1> Our Success stories</h1>
+   <h1> Our Success Stories</h1>
 
 
     <UserStories/>
