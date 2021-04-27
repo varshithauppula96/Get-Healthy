@@ -1,7 +1,7 @@
 import React from 'react'
 import Calories from "./calories";
 import Coaching from "./coaching";
-import Reviews from "./reviews";
+
 import Recipe from "./recipe";
 
 import {Link} from "react-router-dom";
@@ -14,38 +14,38 @@ export default class Home extends React.Component {
         this.state = {
             CaloriesRender: true,
             CoachingRender: false,
-            ReviewsRender :false,
+
             RecipeRender :false
         }
         this.CountCalories = this.CountCalories.bind(this);
         this.PersonalCoaching =this.PersonalCoaching.bind(this);
-        this.Reviews =this.Reviews.bind(this);
+
         this.Recipe =this.Recipe.bind(this);
     }
 
     CountCalories = () => {
         this.setState({CoachingRender: false});
         this.setState({RecipeRender: false});
-        this.setState({ReviewsRender: false});
+
         this.setState({CaloriesRender:true});
     }
 PersonalCoaching =() => {
     this.setState({CaloriesRender: false});
     this.setState({RecipeRender: false});
-    this.setState({ReviewsRender: false});
+
         this.setState({CoachingRender:true});
 }
 Reviews =() =>{
     this.setState({CaloriesRender: false});
     this.setState({CoachingRender: false});
     this.setState({RecipeRender: false});
-    this.setState({ReviewsRender:true});
+
 }
 
     Recipe =() => {
     this.setState({CaloriesRender: false});
     this.setState({CoachingRender: false});
-    this.setState({ReviewsRender: false});
+    
     this.setState({RecipeRender:!this.state.RecipeRender});
 }
     render() {
@@ -54,7 +54,7 @@ Reviews =() =>{
                 <div>
 
                     
-                    <nav className="  p-3 navbar navbar-light" style={{backgroundColor: "#98c0d6"}}>
+                    <nav className="  p-3 navbar navbar-light" style={{backgroundColor: "#73583e"}}>
 
                         <a className="navbar-brand" href="#">
                             <i className="fa fa-heartbeat fa-2x"></i>
@@ -82,7 +82,7 @@ Reviews =() =>{
                         <button  onClick={this.Recipe}  className="m-3 p-3 fas fa-clipboard"> Recipes</button>
                         {this.state.CaloriesRender && <Calories/>}
                         {this.state.CoachingRender && <Coaching/>}
-                        {this.state.ReviewsRender && <Reviews/>}
+
                         {this.state.RecipeRender && <Recipe/>}
 
 
