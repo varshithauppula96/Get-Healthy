@@ -1,7 +1,7 @@
 import React from 'react'
 import Calories from "./calories";
 import Coaching from "./coaching";
-
+import FooterPage from "./footer";
 import Recipe from "./recipe";
 
 import {Link} from "react-router-dom";
@@ -61,7 +61,7 @@ Reviews =() =>{
                             <span>GetHealthy</span>
                         </a>
                         <div className="float-right">
-                            <span><button className="m-3"> <a href= "/sign-up">
+                            <span><button className="m-3"> <a href= "/register">
                             Sign up</a></button>
 
                             <button> <a href = "/login">
@@ -97,8 +97,10 @@ Reviews =() =>{
 
 
 </div>
+
                     </div>
                 </div>
+                <FooterPage/>
 
             </>
         )

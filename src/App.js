@@ -2,7 +2,7 @@ import './App.css';
 import {BrowserRouter, Route} from "react-router-dom"
 import Home from "./components/home-anonymous/home";
 import Login from "./components/auth/login";
-import SignUp from "./components/Registration/sign-up";
+
 import UserHome from "./components/home-user/user-home";
 import Trainee from "./components/trainer/trainer-home";
 import CourseManager from "./components/home-anonymous/user-stories";
@@ -55,7 +55,7 @@ function App() {
                 <Route path="/home/user/:userID" exact={true}  component={UserHome}/>
                 <Route path="/user/grid" exact={true}  component={UserStories}/>
                 <Route path="/recipe" exact={true}  component={RecipeScreen}/>
-                <Route exact path= "/sign-up"exact={true} component={Register} />
+                <Route exact path= "/register"exact={true} component={Register} />
                 <Route path={["/search", "/search/:title"]}
                        exact={true}>
                     <SearchScreen/>
