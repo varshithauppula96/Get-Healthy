@@ -71,7 +71,7 @@ class Register extends Component {
     render() {
         const { errors } = this.state;
         return (
-            <div className="p-5 m-5 border border-info container-fill">
+            <div className="p-5 m-5 bg-secondary text-white container-fill">
                 <h1>Sign Up</h1>
                 <Link to="/" >
                     <i ></i> Home
@@ -99,7 +99,7 @@ class Register extends Component {
                                         })}
                                     />
 
-                                    <span className="red-text">{errors.name}</span>
+                                    <div className="text-danger">{errors.name}</div>
                                 </div>
 
 
@@ -121,7 +121,7 @@ class Register extends Component {
                                         })}
                                     />
 
-                                    <span className="red-text">{errors.email}</span>
+                                    <div className="text-danger">{errors.email}</div>
                                 </div>
                             </div>
                             <div className="form-group row">
@@ -138,7 +138,7 @@ class Register extends Component {
                                         })}
                                     />
 
-                                    <span className="red-text">{errors.password}</span>
+                                    <div className="text-danger">{errors.password}</div>
                                 </div>
                             </div>
                             <div className="form-group row">
@@ -155,7 +155,7 @@ class Register extends Component {
                                         })}
                                     />
 
-                                    <span className="red-text">{errors.password2}</span>
+                                    <div className="text-danger">{errors.password2}</div>
                                 </div>
                             </div>
 
@@ -176,7 +176,7 @@ class Register extends Component {
 
                                     </select>
 
-                                    <span className="red-text">{errors.gender}</span>
+                                    <div className="text-danger">{errors.gender}</div>
                                 </div>
                             </div>
 
@@ -194,7 +194,7 @@ class Register extends Component {
                                         })}
                                     />
 
-                                    <span className="red-text">{errors.dateOfBirth}</span>
+                                    <div className="text-danger">{errors.dateOfBirth}</div>
                                 </div>
                             </div>
 
@@ -212,7 +212,7 @@ class Register extends Component {
                                         })}
                                     />
 
-                                    <span className="red-text">{errors.weightInKgs}</span>
+                                    <div className="text-danger">{errors.weightInKgs}</div>
                                 </div>
                             </div>
 
@@ -230,8 +230,8 @@ class Register extends Component {
                                         })}
                                     />
 
-                                    <span className="red-text">{errors.heightInCms
-                                    }</span>
+                                    <div className="text-danger">{errors.heightInCms
+                                    }</div>
                                 </div>
                             </div>
 
@@ -251,7 +251,7 @@ class Register extends Component {
 
                                     </select>
 
-                                    <span className="red-text">{errors.userType}</span>
+                                    <div className="text-danger">{errors.userType}</div>
                                 </div>
                             </div>
 
@@ -275,7 +275,7 @@ class Register extends Component {
                                         }
                                     </select>
 
-                                    <span className="red-text">{errors.trainerId}</span>
+                                    <div className="text-danger">{errors.trainerId}</div>
                                 </div>
                             </div>
 
@@ -293,23 +293,24 @@ class Register extends Component {
                                         })}
                                     />
 
-                                    <span className="red-text">{errors.about}</span>
+                                    <div className="text-danger">{errors.about}</div>
                                 </div>
                             </div>
 
-                            <div className="col s12" style={{ paddingLeft: "11.250px" }}>
-                                <button
+                            <div className="col text-center" >
+                                <div
                                     style={{
                                         width: "150px",
                                         borderRadius: "3px",
                                         letterSpacing: "1.5px",
-                                        marginTop: "1rem"
+                                        marginTop: "1rem",
+
                                     }}
                                     type="submit"
-                                    className="btn btn-large waves-effect waves-light hoverable blue accent-3"
+                                    className="btn btn-light  waves-effect waves-light hoverable blue accent-3"
                                 >
                                     Sign up
-                                </button>
+                                </div>
                             </div>
                         </form>
 
