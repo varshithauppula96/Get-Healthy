@@ -2,7 +2,7 @@ import React, {useState, useEffect, Component} from 'react';
 import {Link} from 'react-router-dom';
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
-
+import "./profile.css"
 import {updateUser,logoutUser} from "../../actions/authActions";
 import Home_user_services from "../../services/home_user_services";
 import classnames from "classnames";
@@ -125,21 +125,24 @@ class Profile extends Component {
             <div className='container-fluid'>
 
                 <h1>User Profile</h1>
+
                 {
                     user.isAuthenticated==false&&
                     <div>
                         <div className='alert alert-warning'>
                             Not logged in
                         </div>
-                        <Link className='btn btn-outline-primary' to='/login'>Go to login page</Link>
+                        <Link className='btn btn-outline-dark' to='/login'>Go to login page</Link>
                     </div>
                 }
                 {
                     user.isAuthenticated==true && !this.state.editing &&
                     <div>
 
-                        <button className='btn btn-outline-primary float-right' onClick={() => this.setState({editing:true})}>Edit profile</button>
-                       <br/>
+                        <button className=' mr-3 btn btn-outline-dark' onClick={() => this.setState({editing:true})}>Edit profile</button>
+
+                        <button className='btn btn-outline-dark'>  <a id="hoverbtn " href="/dashboard">Dashboard</a> </button>
+                        <br/>
                         <ul className=' list-group mt-5'>
                             <li className=' bg-dark text-white list-group-item'>User ID: {user.user._id}</li>
                             <li className='bg-dark text-white list-group-item'>Display Name : {user.user.name}</li>
@@ -171,7 +174,7 @@ class Profile extends Component {
                                 {user.user._id}
 
 
-                                
+
                             </li>
                             <li className='list-group-item'>Display Name:
                                 <input className='form-control'
