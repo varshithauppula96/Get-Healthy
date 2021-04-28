@@ -24,7 +24,7 @@ export const registerUser = (userData, history) => dispatch => {
 export const updateUser = (userData, history) => dispatch => {
     axios
         .post("/api/users/profile", userData)
-        .then(res => history.push("/profile")) // re-direct to login on successful register
+        .then(res => history.push("/profile")) // re-direct updated profile
         .catch(err =>
             dispatch({
                 type: GET_ERRORS,

@@ -6,6 +6,7 @@ import {connect} from "react-redux";
 import {updateUser,logoutUser} from "../../actions/authActions";
 import Home_user_services from "../../services/home_user_services";
 import classnames from "classnames";
+import Navbar from "../home-anonymous/navbar";
 
 class Profile extends Component {
 
@@ -114,9 +115,16 @@ class Profile extends Component {
 
 
         return(
+<div>
+    <Navbar/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
 
             <div className='container-fluid'>
-                <h1>Profile</h1>
+
+                <h1>User Profile</h1>
                 {
                     user.isAuthenticated==false&&
                     <div>
@@ -129,36 +137,41 @@ class Profile extends Component {
                 {
                     user.isAuthenticated==true && !this.state.editing &&
                     <div>
-                        <h3>User Information</h3>
+
                         <button className='btn btn-outline-primary float-right' onClick={() => this.setState({editing:true})}>Edit profile</button>
-                        <ul className='list-group mt-5'>
-                            <li className='list-group-item'>User ID: {user.user._id}</li>
-                            <li className='list-group-item'>Display Name : {user.user.name}</li>
-                            <li className='list-group-item'>Username : {user.user.email}</li>
-                            <li className='list-group-item'>Gender : {user.user.gender}</li>
-                            <li className='list-group-item'>DoB : {user.user.dateOfBirth}</li>
-                            <li className='list-group-item'>Weight(Kgs) : {user.user.weightInKgs}</li>
-                            <li className='list-group-item'>Height(Cms) : {user.user.heightInCms}</li>
-                            <li className='list-group-item'>Bio : {user.user.about}</li>
-                            <li className='list-group-item'>
+                       <br/>
+                        <ul className=' list-group mt-5'>
+                            <li className=' bg-dark text-white list-group-item'>User ID: {user.user._id}</li>
+                            <li className='bg-dark text-white list-group-item'>Display Name : {user.user.name}</li>
+                            <li className='bg-dark text-white list-group-item'>Username : {user.user.email}</li>
+                            <li className='bg-dark text-white list-group-item'>Gender : {user.user.gender}</li>
+                            <li className='bg-dark text-white list-group-item'>DoB : {user.user.dateOfBirth}</li>
+                            <li className='bg-dark text-white list-group-item'>Weight(Kgs) : {user.user.weightInKgs}</li>
+                            <li className='bg-dark text-white list-group-item'>Height(Cms) : {user.user.heightInCms}</li>
+                            <li className='bg-dark text-white list-group-item'>Bio : {user.user.about}</li>
+                            <li className='bg-dark text-white list-group-item'>
                                 Your Trainer : &nbsp;
                                 <Link to={`/profile/${this.props.auth.user.trainerId}`}>
                                     {this.state.trainer["name"]}
                                 </Link>
                             </li>
                         </ul>
+
                     </div>
                 }
                 {
                     user.isAuthenticated==true && this.state.editing &&
-                    <div className="abvvc">
-                        <ul className='list-group'>
-                            <li className='list-group-item'>Id
-                                <input className='form-control disabled'
-                                       value={this.state._id}
+                    <div>
+
+                        <button className='btn btn-outline-primary float-right' onClick={() => this.setState({editing:false})}>Back to profile</button>
+<br/>
+                        <ul className='list-group mt-5 '>
+                            <li className='list-group-item'>ID:
+
+                                {user.user._id}
 
 
-                                />
+                                
                             </li>
                             <li className='list-group-item'>Display Name:
                                 <input className='form-control'
@@ -180,9 +193,10 @@ class Profile extends Component {
                                                 this.setState({gender:e.target.value})
                                             }
                                         }
-                                        value={user.user.gender}>
-                                    <option value='user'>Male</option>
-                                    <option value='superuser'>Female</option>
+                                        value={this.state.gender}>
+                                    <option value='Male'> Male</option>
+                                    <option value='Female'>Female</option>
+                                    <option value='other'>Other</option>
                                 </select>
                             </li>
                             <li className='list-group-item'>Weight(Kgs):
@@ -222,11 +236,12 @@ class Profile extends Component {
                         </ul>
                         <button
                             onClick={this.handleUpdate}
-                            className="btn btn-primary btn-block">Update</button>
+                            className=" mb-5 btn btn-dark btn-block">Update</button>
                     </div>
 
                 }
             </div>
+</div>
         )
     }
 }
