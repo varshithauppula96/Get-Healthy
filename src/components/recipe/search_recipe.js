@@ -18,11 +18,18 @@ const SearchScreen = () => {
         }
     },[])
     const findRecipeByTitle = (title) => {
-        history.push(title)
+
+
         recipeService.findRecipeByTitle(title)
             .then((results) => {
                 setRecipes(results["hits"])
+                console.log(results["count"])
+                if(results["count"]==0)
+                    history.push("/search")
+                else
+                    history.push(`/search/${title}`)
             })
+
     }
     return(
         <div >

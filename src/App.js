@@ -19,7 +19,7 @@ import jwt_decode from "jwt-decode";
 import setAuthToken from "./utils/setAuthToken";
 import { setCurrentUser, logoutUser } from "./actions/authActions";
 import PrivateRoute from "./private-route/privateRoute";
-import Dashboard from "./components/dashboard/dashboard";
+import Dashboard from "./components/Dashboard/dashboard";
 import SearchIngredient from "./components/home-user/search-ingredient";
 import Profile from "./components/profile/profile";
 import TrainerFollower from "./components/trainer/trainer-follower";
@@ -53,7 +53,7 @@ function App() {
                 <Route path="/" exact={true}  component={Home}/>
                 <Route path="/home" exact={true}  component={Home}/>
                 <Route path="/login" exact={true}  component={Login}/>
-
+                <PrivateRoute exact path="/userhome" component={Dashboard} />
                 <Route path="/home/user/:userID" exact={true}  component={UserHome}/>
                 <Route path="/user/grid" exact={true}  component={UserStories}/>
                 <Route path="/recipe" exact={true}  component={RecipeScreen}/>
@@ -67,7 +67,7 @@ function App() {
                 </Route>
                 {/* eslint-disable-next-line react/jsx-no-undef */}
 
-                <PrivateRoute exact path="/dashboard" component={Dashboard} />
+
                 <Route exact path="/profile" component={Profile} />
                 <Route exact path="/trainers" component={TrainerPage} />
 

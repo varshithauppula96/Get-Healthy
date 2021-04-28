@@ -2,6 +2,7 @@ import React from 'react'
 import TrainerGrid from "./trainer-grid";
 import {BrowserRouter, Link, Route} from "react-router-dom";
 import userService from "../../services/home_user_services";
+import Navbar from "./navbar";
 export default class TrainerStories extends React.Component {
     state = {
         trainers: []
@@ -16,6 +17,7 @@ export default class TrainerStories extends React.Component {
     render() {
         return (
             <div>
+
                 <BrowserRouter>
 
                     <TrainerGrid
