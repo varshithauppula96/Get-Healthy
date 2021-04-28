@@ -164,7 +164,7 @@ class Register extends Component {
 
 
                             <div className="form-group row">
-                                <label className="col-sm-2 col-form-label" htmlFor="password2">Confirm Password</label>
+                                <label className="col-sm-2 col-form-label" htmlFor="gender">Gender</label>
                                 <div className="col-sm-10">
                                     <select error={errors.gender}
                                             id="gender"

@@ -52,6 +52,7 @@ const getTrainees = (trainerId) =>
     fetch(`${USERS_URL}/${trainerId}/trainees`)
         .then(response => response.json())
 
+
 const updateProfile = (userId,user) => {
     return fetch(`${USERS_URL}/${userId}`, {
         method: 'PUT',
