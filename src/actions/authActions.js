@@ -23,7 +23,7 @@ export const registerUser = (userData, history) => dispatch => {
 };
 export const updateUser = (userData, history) => dispatch => {
     axios
-        .put("/api/users/profile", userData)
+        .post("/api/users/profile", userData)
         .then(res => history.push("/profile")) // re-direct to login on successful register
         .catch(err =>
             dispatch({
