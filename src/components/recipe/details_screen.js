@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from 'react'
 import {useHistory, useParams} from 'react-router-dom'
 import recipeService from '../../servers/recipe-service'
+import "./table.css"
+import Navbar from "../home-anonymous/navbar";
 
 const DetailsScreen = () => {
     const {uri} = useParams()
@@ -32,78 +34,67 @@ const DetailsScreen = () => {
     });
     return(
         <div>
-        <a href={"/search"}>Back to search page</a>
-            {/*<button onClick={()=>{history.goBack()}}>Back</button>*/}
-            {/*{JSON.stringify(recipe)}*/}
+            <Navbar/>
+        <br/>
+        <br/>
+        <br/>
+        <div className="container-fluid">
+        <a href={"/search"}>Go back to search page</a>
             <h2 style={{textAlign:"center"}}>
                 {recipe["label"]}
             </h2>
             <img style={{height:"50%",display:"block", marginLeft: "auto", marginRight: "auto", width: "30%"}}
                  src={recipe["image"]}/>
-            <h6 style={{textAlign:"center"}}>Meal Type : &nbsp;
-                {
-                    recipe["mealType"]
-                }
-            </h6>
-            <h6 style={{textAlign:"center"}}>Dish Type : &nbsp;
-                {
-                    recipe["dishType"]
-                }
-            </h6>
-            <h6 style={{textAlign:"center"}}>Diet Label : &nbsp;
-                {
-                    recipe["dietLabels"]
-                }
-            </h6>
-            <h6>Health Labels =>
-                {
-                    JSON.stringify(recipe["healthLabels"])
-                }
-            </h6>
-            <h6>How to Make =>
-                {
-                    recipe["ingredientLines"]
-                }
-            </h6>
-            <h6 style={{textAlign:"center"}}>URL => &nbsp;
-                {
-                    <a href={recipe["url"]}>Click here to find more details about this food item</a>
-                }
-            </h6>
-            <h6 style={{textAlign:"center"}}>
-                Calories => {
-                    JSON.stringify(recipe["calories"])
-                }
-            </h6>
-            <h3 style={{textAlign:"center"}}>Total Nutrients For {recipe["label"]}</h3>
-            <h6 style={{textAlign:"center"}}>
-                {
-
-                    // console.log(nutrientsArr)
-                    nutrientsArr.map((temp) => {
-                        return(
-                            <div>
-                                {
-                                    temp.label
-                                } => &nbsp;
-                                {
-                                temp.quantity
-                                }
-                                {
-                                    temp.unit
-                                }
-                            </div>
-                        )
-                    })
-                }
-            </h6>
-            {/*<h2> {console.log(recipe["recipe"])}</h2>*/}
-            {/*<p>*/}
-            {/*    <img src={recipe["recipe"]["image"]} width={100} style={{float: "right"}}/>*/}
-            {/*    {recipe["recipe"]["ingredients"]}*/}
-            {/*</p>*/}
-            {/*{JSON.stringify(recipe)}*/}
+                 <br/>
+            <table>
+                <thead>
+                <tr>
+                    <th scope="col">Diet Label</th>
+                    <th scope="col">Health Labels</th>
+                    <th scope="col">Ingredients</th>
+                    <th scope="col">Recipe</th>
+                    <th scope="col">Calories</th>
+                    <th scope="col">Nutrients</th>
+                </tr>
+                </thead>
+                <tr>
+                    <td className="diet-label">{
+                        recipe["dietLabels"]
+                    }</td>
+                    <td className="item-qty"> {
+                        JSON.stringify(recipe["healthLabels"])
+                    }</td>
+                    <td className="item-price">{
+                        recipe["ingredientLines"]
+                    }</td>
+                    <td className="item-price"> {
+                        <a href={recipe["url"]}>Click here</a>
+                    }</td>
+                    <td>{
+                        JSON.stringify(recipe["calories"])
+                    }</td>
+                    <td className="last">{
+                        nutrientsArr.map((temp) => {
+                            return(
+                                <div>
+                                    {
+                                        <b>{temp.label}</b>
+                                    } &nbsp;
+                                    {
+                                        (temp.quantity)
+                                    }
+                                    {
+                                        temp.unit
+                                    }
+                                </div>
+                            )
+                        })
+                    }</td>
+                </tr>
+            </table>
+        </div>
         </div>
     )
 }
+
 export default DetailsScreen
