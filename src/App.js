@@ -2,7 +2,7 @@ import './App.css';
 import {BrowserRouter, Route} from "react-router-dom"
 import Home from "./components/home-anonymous/home";
 import Login from "./components/auth/login";
-
+import AllUsers from "./components/profile/allusers/allusers";
 import UserHome from "./components/home-user/user-home";
 import Trainee from "./components/trainer/trainer-home";
 import CourseManager from "./components/home-anonymous/user-stories";
@@ -53,9 +53,9 @@ function App() {
                 <Route path="/" exact={true}  component={Home}/>
                 <Route path="/home" exact={true}  component={Home}/>
                 <Route path="/login" exact={true}  component={Login}/>
-                <PrivateRoute exact path="/userhome" component={Dashboard} />
+                <PrivateRoute exact path="/dashboard" component={Dashboard} />
                 <Route path="/home/user/:userID" exact={true}  component={UserHome}/>
-                <Route path="/user/grid" exact={true}  component={UserStories}/>
+                <Route path="/users" exact={true}  component={AllUsers}/>
                 <Route path="/recipe" exact={true}  component={RecipeScreen}/>
                 <Route exact path= "/register"exact={true} component={Register} />
                 <Route path={["/search", "/search/:title"]}

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import {Link} from 'react-router-dom';
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
 import { withStyles } from '@material-ui/styles';
@@ -73,8 +74,20 @@ class Dashboard extends Component {
         const {classes} = this.props;
 
         return (
+
             <div>
+                {/*{*/}
+                {/*    user.isAuthenticated==false&&*/}
+                {/*    <div>*/}
+
+                {/*        <div className='alert alert-warning'>*/}
+                {/*            Not logged in, please login to View this content :D*/}
+                {/*        </div>*/}
+                {/*        <Link className='btn btn-outline-dark' to='/login'>Go to login page</Link>*/}
+                {/*    </div>*/}
+                {/*}*/}
                 {
+                    // user.isAuthenticated==true&&
                     user.userType === "User" &&
                     <UserHome user={user} logoutClick={this.onLogoutClick}/>
                 }

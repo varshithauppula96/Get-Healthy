@@ -1,8 +1,8 @@
 import React from 'react'
-import UserGrid from "./User_grid";
+import AllUserGrid from "./alluser_grid";
 import {BrowserRouter, Link, Route} from "react-router-dom";
-import userService from "../../services/home_user_services";
-export default class UserStories extends React.Component {
+import userService from "../../../services/home_user_services";
+export default class AllUsers extends React.Component {
     state = {
         users: []
     }
@@ -10,7 +10,7 @@ export default class UserStories extends React.Component {
         userService.findAllUsers()
             .then(users => this.setState({users}))
     }
-    
+
 
 
 
@@ -20,7 +20,7 @@ export default class UserStories extends React.Component {
                 <BrowserRouter>
                     {/*<Route path="/courses/table" component={CourseTable}/>*/}
 
-                    <UserGrid
+                    <AllUserGrid
 
                         users={this.state.users}/>
 

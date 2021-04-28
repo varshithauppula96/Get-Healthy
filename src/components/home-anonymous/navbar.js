@@ -12,7 +12,12 @@ const Navbar = () => {
                     <span id="navbar-getHealthy" className=" text-white">GetHealthy</span>
                 </div>
                 <div className="float-right">
-                            <span><div className="mr-2 btn btn-light"> <a href= "/register">
+
+
+                            <span>
+                                <div className="mr-2 btn btn-light"> <a href= "/search">
+                            Recipes</a></div>
+                                <div className="mr-2 btn btn-light"> <a href= "/register">
                             Sign up</a></div>
 
                             <div className="mr-2 btn btn-light"> <a href = "/login">

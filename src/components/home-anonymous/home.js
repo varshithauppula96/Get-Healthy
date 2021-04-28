@@ -87,11 +87,15 @@ Reviews =() =>{
    <h1 className = " pb-3 mb-3"> Our Success Stories</h1>
 
     <UserStories/>
+    <br/>
+
+    <h4><Link to="/profile" >View all our Users and trainers</Link></h4>
 
 
 </div>
 
                     </div>
+
                 </div>
                 <FooterPage/>
 
