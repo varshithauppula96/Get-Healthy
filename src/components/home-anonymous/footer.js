@@ -11,10 +11,8 @@ const FooterPage = () => {
                 <div className="row">
                     <div className="col-md-3 footer-brand animated fadeInLeft">
                         <h2>About Us</h2>
-                        <p>Suspendisse hendrerit tellus laoreet luctus pharetra. Aliquam porttitor vitae orci nec
-                            ultricies. Curabitur vehicula, libero eget faucibus faucibus, purus erat eleifend enim,
-                            porta pellentesque ex mi ut sem.</p>
-                        <p>© 2014 BS3 UI Kit, All rights reserved</p>
+                        <p> We are the application you all need to maintain a healthy life!</p>
+                        <p>© 2021, All rights reserved</p>
                     </div>
                     <div className="col-md-4 footer-nav animated fadeInUp">
                         <h4>Menu —</h4>
@@ -30,13 +28,13 @@ const FooterPage = () => {
                             <ul className="list">
                                 <h4>Contact US</h4>
                                 <li>Toll Free Number:
-                                    1806 632 9683</li>
+                                    617 XXX 9683</li>
                                 <li>Email:
-                                    support@gethelthy.com</li>
+                                    support@gethealthy.com</li>
                                 <li>Address:
                                     GetHealthy Private Limited
                                     20 Bendemeer Road, #03-12
-                                    BS Bendemeer Centre, Singapore 339914</li>
+                                    BS Bendemeer Centre, Boston 02120</li>
                             </ul>
                         </div>
                     </div>
@@ -51,7 +49,7 @@ const FooterPage = () => {
                     </div>
                     <div className="col-md-3 footer-ns animated fadeInRight">
                         <h4>Newsletter</h4>
-                        <p>A rover wearing a fuzzy suit doesn’t alarm the real penguins</p>
+                        <p>Get to know our latest news!</p>
 
                     </div>
                 </div>

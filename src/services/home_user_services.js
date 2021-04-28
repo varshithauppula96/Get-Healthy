@@ -38,6 +38,16 @@ export const updateUser = (userId,user) =>
     })
         .then(response => response.json())
 
+export const updateTrainer = (trainerId,user) =>
+    fetch(`${USERS_URL}/${trainerId}`, {
+        method: 'PUT',
+        body: JSON.stringify(user),
+        headers: {
+            'content-type': 'application/json'
+        }
+    })
+        .then(response => response.json())
+
 const getTrainees = (trainerId) =>
     fetch(`${USERS_URL}/${trainerId}/trainees`)
         .then(response => response.json())
@@ -58,6 +68,7 @@ const api = {
     deleteUser: deleteUser,
     createUser,
     updateUser,
+    updateTrainer,
     findUserById,
     findTrainers,
     getTrainees,
