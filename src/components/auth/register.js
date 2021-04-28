@@ -73,6 +73,11 @@ class Register extends Component {
         return (
             <div>
             <Navbar/>
+
+                <br/>
+                <br/>
+                <br/>
+                <br/>
             <div className="p-5 m-5 bg-secondary text-white container-fill">
                 <h1>Sign Up</h1>
 

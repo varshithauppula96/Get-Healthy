@@ -27,7 +27,12 @@ const SearchScreen = () => {
     return(
         <div >
            <Navbar/>
+
 <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
 <div className="container">
             <h2 className="row justify-content-center">Search A Recipe</h2>
 

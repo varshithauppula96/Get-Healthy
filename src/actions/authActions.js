@@ -21,6 +21,17 @@ export const registerUser = (userData, history) => dispatch => {
             })
         );
 };
+export const updateUser = (userData, history) => dispatch => {
+    axios
+        .put("/api/users/profile", userData)
+        .then(res => history.push("/profile")) // re-direct to login on successful register
+        .catch(err =>
+            dispatch({
+                type: GET_ERRORS,
+                payload: err.response.data
+            })
+        );
+};
 
 // Login - get user token
 export const loginUser = userData => dispatch => {

@@ -8,6 +8,7 @@ import {Link} from "react-router-dom";
 import UserStories from "./user-stories";
 
 
+
 export default class Home extends React.Component {
     constructor(props) {
         super(props)
@@ -55,7 +56,10 @@ Reviews =() =>{
 
                   <Navbar/>
                     <br/>
-
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
                     {<img className="container-fluid" src="https://picsum.photos/id/1060/1250/500"/>}
                 <br/>
                 <br/>

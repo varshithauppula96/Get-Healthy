@@ -5,7 +5,7 @@ const Navbar = () => {
     return (
         <div >
 
-            <nav className=" navbar " style={{backgroundColor: "#3c3d41"}}>
+            <nav className=" navbar  " style={{backgroundColor: "#3c3d41"}}>
 
                 <div className="navbar-brand" href="#">
                     <i className=" pr-3 pb-1 text-white fa fa-heartbeat fa-2x"></i>

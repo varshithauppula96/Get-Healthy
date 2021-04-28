@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { loginUser } from "../../actions/authActions";
 import classnames from "classnames";
 import Navbar from "../home-anonymous/navbar";
+import "../home-anonymous/navbar.css"
 class Login extends Component {
     constructor() {
         super();
@@ -47,7 +48,11 @@ class Login extends Component {
         return (
             <div>
                 <Navbar/>
-            <div className="p-5 m-5 bg-secondary  text-white container-fill">
+            <br/>
+                <br/>
+                <br/>
+
+            <div className=" main p-5 m-5 bg-secondary  text-white container-fill">
                 <h1>Sign Up</h1>
 
                 <br/>

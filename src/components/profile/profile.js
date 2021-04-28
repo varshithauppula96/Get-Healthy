@@ -2,8 +2,10 @@ import React, {useState, useEffect, Component} from 'react';
 import {Link} from 'react-router-dom';
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
-import {logoutUser} from "../../actions/authActions";
+
+import {updateUser,logoutUser} from "../../actions/authActions";
 import Home_user_services from "../../services/home_user_services";
+import classnames from "classnames";
 
 class Profile extends Component {
 
@@ -13,7 +15,7 @@ class Profile extends Component {
             editing: false
         }
         this.state = {
-            userId:"",
+            _id:"",
             trainerId:"",
             name:"",
             userType:"",
@@ -30,7 +32,7 @@ class Profile extends Component {
     componentDidMount(){
 
         this.setState({
-            userId: this.props.auth.user._id,
+            _id: this.props.auth.user._id,
             trainerId: this.props.auth.user.trainerId,
             name: this.props.auth.user.name,
             userType: this.props.auth.user.userType,
@@ -54,6 +56,7 @@ class Profile extends Component {
     handleInputChange = (value) => {
 
         this.setState({
+
             name: value,
             gender: value,
             weightInKgs: value,
@@ -61,6 +64,29 @@ class Profile extends Component {
             about: value
         });
     };
+    handleUpdate = () => {
+        const userUpdated = {
+            _id:this.state._id,
+            name: this.state.name,
+            gender: this.state.gender,
+            weightInKgs: this.state.weightInKgs,
+            heightInCms: this.state.heightInCms,
+            about: this.state.about,
+            email: this.state.email,
+            trainerId: this.state.trainerId,
+            dateOfBirth: this.state.dateOfBirth,
+            userType: this.state.userType
+        }
+        // updateUser = () => {
+        //     this.setState({editing: false})
+        //     console.log(userUpdated)
+        //     //updateUser.updateDetails()
+            this.props.updateUser(userUpdated, this.props.history);
+        console.log(userUpdated)
+        }
+
+
+    ;
 
 
     // handleUpdate = () => {
@@ -86,23 +112,7 @@ class Profile extends Component {
 
         const { classes } = this.props;
 
-        const userUpdated = {
-            name: this.state.name,
-            gender: this.state.gender,
-            weightInKgs: this.state.weightInKgs,
-            heightInCms: this.state.heightInCms,
-            about:this.state.about,
-            email:this.state.email,
-            trainerId: this.state.trainerId,
-            dateOfBirth: this.state.dateOfBirth,
-            userType: this.state.userType
-        }
 
-        const updateUsers =() => {
-            this.setState({editing:false})
-            console.log(userUpdated)
-            //updateUser.updateDetails()
-        }
         return(
 
             <div className='container-fluid'>
@@ -122,6 +132,7 @@ class Profile extends Component {
                         <h3>User Information</h3>
                         <button className='btn btn-outline-primary float-right' onClick={() => this.setState({editing:true})}>Edit profile</button>
                         <ul className='list-group mt-5'>
+                            <li className='list-group-item'>User ID: {user.user._id}</li>
                             <li className='list-group-item'>Display Name : {user.user.name}</li>
                             <li className='list-group-item'>Username : {user.user.email}</li>
                             <li className='list-group-item'>Gender : {user.user.gender}</li>
@@ -140,8 +151,15 @@ class Profile extends Component {
                 }
                 {
                     user.isAuthenticated==true && this.state.editing &&
-                    <div>
+                    <div className="abvvc">
                         <ul className='list-group'>
+                            <li className='list-group-item'>Id
+                                <input className='form-control disabled'
+                                       value={this.state._id}
+
+
+                                />
+                            </li>
                             <li className='list-group-item'>Display Name:
                                 <input className='form-control'
                                        defaultValue={this.state.name}
@@ -155,7 +173,6 @@ class Profile extends Component {
                             <li className='list-group-item'>Email: {user.user.email}</li>
                             <li className='list-group-item'>Role: {user.user.userType}</li>
                             <li className='list-group-item'>DoB: {user.user.dateOfBirth}</li>
-
                             <li className='list-group-item'>Gender:
                                 <select className='form-control'
                                         onChange={
@@ -204,16 +221,19 @@ class Profile extends Component {
                             </li>
                         </ul>
                         <button
-                            onClick={updateUsers}
+                            onClick={this.handleUpdate}
                             className="btn btn-primary btn-block">Update</button>
                     </div>
+
                 }
             </div>
         )
     }
 }
 
+
 Profile.propTypes = {
+    updateUser: PropTypes.func.isRequired,
     logoutUser: PropTypes.func.isRequired,
     auth: PropTypes.object.isRequired
 };
@@ -224,5 +244,5 @@ const mapStateToProps = state => ({
 
 export default connect(
     mapStateToProps,
-    { logoutUser }
+    { updateUser, logoutUser }
 )(Profile);
