@@ -25,6 +25,7 @@ import Profile from "./components/profile/profile";
 import TrainerFollower from "./components/trainer/trainer-follower";
 import TrainerStories from "./components/home-anonymous/trainer-stories";
 import TrainerPage from "./components/home-anonymous/trainers";
+import PublicProfile from "./components/profile/anonymous-profile";
 
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
@@ -54,6 +55,7 @@ function App() {
                 <Route path="/home" exact={true}  component={Home}/>
                 <Route path="/login" exact={true}  component={Login}/>
                 <PrivateRoute exact path="/dashboard" component={Dashboard} />
+                <Route path="/profile/:profileId" exact={true} component={PublicProfile}/>
                 <Route path="/home/user/:userID" exact={true}  component={UserHome}/>
                 <Route path="/users" exact={true}  component={AllUsers}/>
                 <Route path="/recipe" exact={true}  component={RecipeScreen}/>

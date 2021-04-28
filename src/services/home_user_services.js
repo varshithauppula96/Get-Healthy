@@ -18,6 +18,13 @@ export const findUserById = (userId) =>
     fetch(`${USERS_URL}/${userId}`)
         .then(response => response.json())
 
+export const findTrainerById = (trainerId) =>
+    console.log(trainerId)
+    // fetch(`${TRAINER_URL}/${trainerId}`)
+    //     .then(response => response.json())
+
+
+
 export const createUser = (user) =>
     fetch(USERS_URL, {
         method: 'POST',
@@ -73,7 +80,8 @@ const api = {
     findUserById,
     findTrainers,
     getTrainees,
-    updateProfile
+    updateProfile,
+    findTrainerById
 }
 
 export default api;

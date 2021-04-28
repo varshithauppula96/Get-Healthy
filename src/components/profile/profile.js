@@ -154,7 +154,7 @@ class Profile extends Component {
                             <li className='bg-dark text-white list-group-item'>Bio : {user.user.about}</li>
                             <li className='bg-dark text-white list-group-item'>
                                 Your Trainer : &nbsp;
-                                <Link to={`/profile/${this.props.auth.user.trainerId}`}>
+                                <Link to={`profile/${this.props.auth.user.trainerId}`}>
                                     {this.state.trainer["name"]}
                                 </Link>
                             </li>
