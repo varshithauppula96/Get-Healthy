@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
 import home_user_services from "../../services/home_user_services";
+import {updateUser,logoutUser} from "../../actions/authActions";
 import profile from "./profile";
 
 const PublicProfile = () => {
