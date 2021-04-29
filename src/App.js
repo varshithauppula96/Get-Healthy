@@ -55,8 +55,8 @@ function App() {
                 <Route path="/home" exact={true}  component={Home}/>
                 <Route path="/login" exact={true}  component={Login}/>
                 <PrivateRoute exact path="/dashboard" component={Dashboard} />
-                <PrivateRoute exact path="/profile/:profileId">
-
+                <PrivateRoute exact path="/profile/:profileId"
+                    component= {PublicProfile}>
                 </PrivateRoute>
                 <Route path="/home/user/:userID" exact={true}  component={UserHome}/>
                 <Route path="/users" exact={true}  component={AllUsers}/>

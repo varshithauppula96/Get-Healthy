@@ -106,13 +106,14 @@ const SearchIngredient = () => {
                                         <li className="list-group-item"
                                             key={(ingredient["food"]["foodId"]).split("food_")[1]}
                                             id={(ingredient["food"]["foodId"]).split("food_")[1]}>
-                                            <Link to={"/dashboard"}>
-                                                <button onClick={() => putFoodInDb(ingredient)}>
+                                            <a href={"/dashboard"}>
+                                                <button onClick={() => putFoodInDb(ingredient)}
+                                                        >
                                                     {
                                                         ingredient["food"]["label"]
                                                     }
                                                 </button>
-                                            </Link>
+                                            </a>
                                         </li>
                                     }
                                 </>

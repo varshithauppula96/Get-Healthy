@@ -321,7 +321,7 @@ class Register extends Component {
                                 </button>
                             </div>
                         </form>
-                <h6 className="m-5"> <a href="\register" >Already have an Account? Click here to Login!</a></h6>
+                <h6 className="m-5"> <a href="\login" >Already have an Account? Click here to Login!</a></h6>
             </div>
             </div>
         );
