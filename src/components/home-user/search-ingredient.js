@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import {Link, useParams} from "react-router-dom";
+
 import IngredientService from "../../services/ingredient-service";
 import FoodTrackerService from "../../services/food-tracker-service";
 import {Button} from "@material-ui/core";
@@ -44,6 +45,7 @@ const SearchIngredient = () => {
             console.log(foodObj)
             FoodTrackerService.createFoodEntry(foodObj)
                 .then(response => console.log(response.json))
+                ;
         }
     }
 
@@ -106,14 +108,14 @@ const SearchIngredient = () => {
                                         <li className="list-group-item"
                                             key={(ingredient["food"]["foodId"]).split("food_")[1]}
                                             id={(ingredient["food"]["foodId"]).split("food_")[1]}>
-                                            <a href={"/dashboard"}>
+                                            <Link to={"/dashboard"}>
                                                 <button onClick={() => putFoodInDb(ingredient)}
                                                         >
                                                     {
                                                         ingredient["food"]["label"]
                                                     }
                                                 </button>
-                                            </a>
+                                            </Link>
                                         </li>
                                     }
                                 </>
