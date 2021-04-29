@@ -11,14 +11,21 @@ const AllUserCard = (
                 {<img className="card-img-top" src="https://picsum.photos/300/200" />}
                 <div className="card-body" >
                     <h5 className="card-title">
-                        <a href={`/profile/${user._id}`}>
+
+                      <div> <a href={`/profile/${user._id}`}>
                         <h3>{user.name}</h3>
                         </a>
+                      </div>
                     </h5>
 
 
+
+
                 </div>
+
             </div>
+            <br/>
+
         </div>
     )}
 export default AllUserCard

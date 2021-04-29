@@ -31,11 +31,16 @@ class AllUsers extends React.Component {
     render() {
         return (
             <div>
+                <button className="btn btn-light btn-md" style={{margin:"10px"}}
+                        onClick={() => this.props.history.goBack()}>
+                    Go Back
+                </button>
                 <BrowserRouter>
                     {/*<Route path="/courses/table" component={CourseTable}/>*/}
 
                     <AllUserGrid
                         users={this.state.users}/>
+
                 </BrowserRouter>
             </div>
         )

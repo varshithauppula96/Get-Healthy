@@ -31,13 +31,13 @@ const PublicProfile=() => {
                             Name : {user.name}
                         </li>
                         <li className="list-group-item bg-dark text-white">
-                            Name : {user.dateOfBirth}
+                            Date Of Birth: {user.dateOfBirth}
                         </li>
                         <li className="list-group-item bg-dark text-white">
-                            Name : {user.gender}
+                            Gender: {user.gender}
                         </li>
                         <li className="list-group-item bg-dark text-white">
-                            Name : {user.about}
+                            User Bio: {user.about}
                         </li>
                     </ul>
                 </div>
@@ -47,21 +47,22 @@ const PublicProfile=() => {
                 <div className="container-fluid otherprofile">
                     <ul className="list-group bg-dark">
                         <li className="list-group-item">
-                            Name : {user.name}
+                            <b>Name : </b>{user.name}
                         </li>
                         <li className="list-group-item">
-                            Name : {user.dateOfBirth}
+                            <b>Date of Birth : </b>{user.dateOfBirth}
                         </li>
                         <li className="list-group-item">
-                            Name : {user.gender}
+                        <b>    Gender : </b>{user.gender}
                         </li>
                         <li className="list-group-item">
-                            Name : {user.about}
+                            <b>Bio :</b> {user.about}
                         </li>
                     </ul>
                 </div>
                 }
         </div>
+
     )
 }
 
