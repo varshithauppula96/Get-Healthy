@@ -68,7 +68,7 @@ class Login extends Component {
                                     error={errors.email}
                                     id="email"
                                     type="email"
-                                    className={classnames("col-sm-10", {
+                                    className={classnames("col-sm-10 form-control", {
                                         invalid: errors.email || errors.emailnotfound
                                     })}
                                 />
@@ -89,7 +89,7 @@ class Login extends Component {
                                     error={errors.password}
                                     id="password"
                                     type="password"
-                                    className={classnames("col-sm-10", {
+                                    className={classnames("col-sm-10 form-control", {
                                         invalid: errors.password || errors.passwordincorrect
                                     })}
                                 />
@@ -110,7 +110,7 @@ class Login extends Component {
                                         marginTop: "1rem"
                                     }}
                                     type="submit"
-                                    className="btn btn-light  waves-effect waves-light hoverable blue accent-3"
+                                    className="btn btn-light form-control waves-effect waves-light hoverable blue accent-3"
                                 >
                                     Login
                                 </button>
