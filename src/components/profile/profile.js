@@ -7,13 +7,15 @@ import {updateUser,logoutUser} from "../../actions/authActions";
 import Home_user_services from "../../services/home_user_services";
 import classnames from "classnames";
 import Navbar from "../home-anonymous/navbar";
+import FeedbackService from "../../services/feedback-service";
 
 class Profile extends Component {
 
     constructor() {
         super();
         this.state = {
-            editing: false
+            editing: false,
+            feedbacks:[]
         }
         this.state = {
             _id:"",
@@ -33,6 +35,9 @@ class Profile extends Component {
     }
 
     componentDidMount(){
+
+        FeedbackService.getFeedbackForUser(this.props.auth.user._id)
+            .then(f => this.setState({feedbacks:f}))
 
         this.setState({
             _id: this.props.auth.user._id,
@@ -119,6 +124,8 @@ class Profile extends Component {
 
         const { classes } = this.props;
 
+        const feedbacks = this.state.feedbacks
+
 
         return(
 <div>
@@ -159,12 +166,17 @@ class Profile extends Component {
                             <li className='bg-dark text-white list-group-item'>Weight(Kgs) : {user.user.weightInKgs}</li>
                             <li className='bg-dark text-white list-group-item'>Height(Cms) : {user.user.heightInCms}</li>
                             <li className='bg-dark text-white list-group-item'>Bio : {user.user.about}</li>
-                            <li className='bg-dark text-white list-group-item'>
-                                Your Trainer : &nbsp;
-                                <Link to={`profile/${this.props.auth.user.trainerId}`}>
-                                    {this.state.trainer["name"]}
-                                </Link>
-                            </li>
+                            { this.props.auth.user.userType == 'User' &&
+                                <li className='bg-dark text-white list-group-item'>
+                                    Your Trainer : &nbsp;
+                                    <div className="bg-white">
+                                    <Link
+                                        to={`profile/${this.props.auth.user.trainerId}`}>
+                                        {this.state.trainer["name"]}
+                                    </Link>
+                                    </div>
+                                </li>
+                            }
                         </ul>
 
                     </div>
@@ -250,10 +262,28 @@ class Profile extends Component {
                     </div>
 
                 }
-                <div>
-                    Your Feedback:
-
-                </div>
+                {
+                    this.props.auth.user.userType == 'User' &&
+                        <div>
+                            <h4 style={{textAlign:"center",margin:"15px"}}>
+                                Your Trainer Feedbacks:
+                            </h4>
+                            {
+                                feedbacks &&
+                                feedbacks.map((fd) =>{
+                                    return(
+                                        <div className="row mb-2">
+                                            <div className="p-4 rounded shadow-sm bg-light mb-3 col-12">
+                                                {
+                                                    fd["feedbackText"]
+                                                }
+                                            </div>
+                                        </div>
+                                    )
+                                })
+                            }
+                        </div>
+                }
             </div>
 </div>
         )

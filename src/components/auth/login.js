@@ -53,7 +53,7 @@ class Login extends Component {
                 <br/>
 
             <div className=" main p-5 m-5 bg-secondary  text-white container-fill">
-                <h1>Sign Up</h1>
+                <h1>Login</h1>
 
                 <br/>
 

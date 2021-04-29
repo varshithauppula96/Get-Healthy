@@ -16,7 +16,7 @@ const postFeedbackToUser = (feedback,trainerId) => {
 }
 
 const getFeedbackForUser = (userId) =>{
-    fetch(`${FEEDBACK_URL}/users/${userId}`)
+    return fetch(`${FEEDBACK_URL}/users/${userId}`)
         .then(response => response.json())
 
 }
