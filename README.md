@@ -10,10 +10,8 @@ Diet and fitness related diseases are growing to epidemic proportions. Most part
 
 ## Types of users
 
-1) Admin
-2) End users
-3) Dieticians
-4) Fitness trainers
+1) End users
+2) Trainers
 
 ## Goals of the users
 
@@ -27,19 +25,19 @@ Diet and fitness related diseases are growing to epidemic proportions. Most part
 
 · Can track calorie intake by logging in daily diet
 
-· Can track excercise and fitness activities
-
-· Can watch workout and diet related videos
+· Can see various food Recipes
 
 · Can post their success stories
 
-· Can view other user's success stories and comment
+· Can view other user's success stories and Trainer stories
 
-### Fitness trainers and dieticians:
+### Fitness trainers :
 
-· Can view activity, calorie intake and profile of their respective trainees
+· Can view activity, profile of their respective trainees
 
-· Can post their success stories with customers
+· Can post their story 
+
+· Can feedback to assigned Trainees
 
 ## Overall Strategy
 
@@ -47,15 +45,13 @@ Get-Healthy helps measure:
 
 · Nutrition level and calorie intake by logging in daily diet
 
-· Fitness activities by tracking exercise — logging in physical activities
-
-· Connects users with a team of dieticians and fitness trainers who allow the users to create perfect diet and workout plans suited to tastes and activity levels
+· Connects users with a team of fitness trainers who allow the users to create perfect diet and workout plans suited to tastes and activity levels through constant feedback
 
 ## Web API
 
 · Calories
 
-· Youtube videos
+· Recipes
 
 ## UML Diagram
 <img width="373" alt="umld" src="https://user-images.githubusercontent.com/36701923/115153519-6a812180-a044-11eb-8419-a04251062649.PNG">
