@@ -1,10 +1,11 @@
 import React, {Component, useEffect, useState} from "react";
-import {Link, useParams} from "react-router-dom";
+import {BrowserRouter, Link, Route, useParams} from "react-router-dom";
 import UserService from "../../services/home_user_services";
 import FeedbackService from "../../services/feedback-service";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {logoutUser} from "../../actions/authActions";
+import PublicProfile from "../profile/anonymous-profile";
 
 class TrainerFollower extends Component {
 
@@ -48,35 +49,24 @@ class TrainerFollower extends Component {
                 {
                     this.state.trainees.map((trainee) =>
                         <div>
+
                             <div className="col-1"></div>
                             <div key={trainee["_id"]}>
                                 <div className="col-3">
-                                    <Link to={`../${trainee["_id"]}`}>
+                                    <Link to={`profile/${trainee["_id"]}`}>
                                         {
                                             trainee["name"]
                                         }
                                     </Link>
                                 </div>
 
-                                <textarea className="form-control"
-                                          onChange={(event) => {
-                                              this.setState({
-                                                  post: event.target.value
-                                              })
-                                          }}>
-                                        </textarea>
-
-                                <button className="btn btn-primary"
-                                        disabled={!this.state.post}
-                                        onClick={() => {
-                                            this.postFeedback(trainee)
-                                            history.goBack()
-                                        }}>
-                                    Post Feedback
-                                </button>
 
                             </div>
+                            <Route path={`profile/${trainee["id"]}`} exact={true} >
+                            <PublicProfile trainees = {this.state.trainees}/>
+                            </Route>
                         </div>
+
                     )
                 }
             </div>

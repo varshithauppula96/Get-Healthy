@@ -15,6 +15,11 @@ const postFeedbackToUser = (feedback,trainerId) => {
         .then(response => response.json())
 }
 
+const getFeedbackForUser = (userId) =>{
+    fetch(`${FEEDBACK_URL}/users/${userId}`)
+        .then(response => response.json())
+
+}
 const deleteFeedback = (trainerId,fid) => {
     // console.log(trainerId, fid)
     fetch(`${FEEDBACK_URL}/${trainerId}/${fid}`,
@@ -24,7 +29,8 @@ const deleteFeedback = (trainerId,fid) => {
 const FeedbackService = {
     getFeedbackByTrainerId,
     postFeedbackToUser,
-    deleteFeedback
+    deleteFeedback,
+    getFeedbackForUser
 }
 
 export default FeedbackService;

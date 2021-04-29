@@ -110,6 +110,11 @@ class Register extends Component {
                             </div>
 
 
+
+
+
+
+
                             <div className="form-group row">
                                 <label className="col-sm-2 col-form-label" htmlFor="email">Email</label>
                                 <div className="col-sm-10">

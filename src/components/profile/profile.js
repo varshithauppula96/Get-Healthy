@@ -19,6 +19,8 @@ class Profile extends Component {
             _id:"",
             trainerId:"",
             name:"",
+            password:"",
+            password2:"",
             userType:"",
             email:"",
             gender:"",
@@ -36,6 +38,8 @@ class Profile extends Component {
             _id: this.props.auth.user._id,
             trainerId: this.props.auth.user.trainerId,
             name: this.props.auth.user.name,
+            password:this.props.auth.user.password,
+
             userType: this.props.auth.user.userType,
             email:this.props.auth.user.email,
             gender:this.props.auth.user.gender,
@@ -59,6 +63,7 @@ class Profile extends Component {
         this.setState({
 
             name: value,
+            password:value,
             gender: value,
             weightInKgs: value,
             heightInCms: value,
@@ -69,6 +74,7 @@ class Profile extends Component {
         const userUpdated = {
             _id:this.state._id,
             name: this.state.name,
+            password:this.state.password,
             gender: this.state.gender,
             weightInKgs: this.state.weightInKgs,
             heightInCms: this.state.heightInCms,
@@ -146,6 +152,7 @@ class Profile extends Component {
                         <ul className=' list-group mt-5'>
                             <li className=' bg-dark text-white list-group-item'>User ID: {user.user._id}</li>
                             <li className='bg-dark text-white list-group-item'>Display Name : {user.user.name}</li>
+                            <li className='bg-dark text-white list-group-item'> Password : {user.user.password}</li>
                             <li className='bg-dark text-white list-group-item'>Username : {user.user.email}</li>
                             <li className='bg-dark text-white list-group-item'>Gender : {user.user.gender}</li>
                             <li className='bg-dark text-white list-group-item'>DoB : {user.user.dateOfBirth}</li>
@@ -243,6 +250,10 @@ class Profile extends Component {
                     </div>
 
                 }
+                <div>
+                    Your Feedback:
+
+                </div>
             </div>
 </div>
         )

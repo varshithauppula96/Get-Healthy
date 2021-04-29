@@ -54,7 +54,7 @@ const Trainer = ({user, logoutClick}) => {
                                     <li className="list-inline-item">
                                         <h5 className="font-weight-bold mb-0 d-block">{feedbackCount}</h5>
                                         <i className="fas fa-comment text-muted mr-1"></i>
-                                        <a href="" className="text-muted">Feedbacks Given</a>
+                                        <a href="" className="text-muted">Your Feedbacks</a>
                                     </li>
                                     <li className="list-inline-item">
                                         <h5 className="font-weight-bold mb-0 d-block">{trainees.length}</h5>
@@ -65,7 +65,7 @@ const Trainer = ({user, logoutClick}) => {
                             </div>
                             <div className="px-4 py-3">
                                 <h5 className="mb-10">About</h5>
-                                <Link to={`/home/user/${user._id}/profile`}
+                                <Link to={`/profile`}
                                       className="btn btn-outline-dark btn-sm float-right">Edit
                                     profile</Link>
                                 <div className="p-4 rounded shadow-sm bg-light">
@@ -94,7 +94,7 @@ const Trainer = ({user, logoutClick}) => {
                                                             {
                                                                 fd["feedbackText"]
                                                             } FOR &nbsp;
-                                                            <Link to={`./${fd["userId"]}`}>
+                                                            <Link to={`/profile/${fd["userId"]}`}>
                                                                 {
                                                                     fd["nameOfUser"]
                                                                 }
