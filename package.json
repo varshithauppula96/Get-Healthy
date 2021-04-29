@@ -39,6 +39,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "proxy": "http://h1n.herokuapp.com/",
   "eslintConfig": {
     "extends": [
       "react-app",
