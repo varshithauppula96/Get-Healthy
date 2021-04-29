@@ -1,4 +1,4 @@
-const FOOD_TRACKER_URL = "http://localhost:5000/api/foodEntries"
+const FOOD_TRACKER_URL = "http://h1n.herokuapp.com//api/foodEntries"
 
 const getAllFoodEntries = () =>
     fetch(`${FOOD_TRACKER_URL}`)

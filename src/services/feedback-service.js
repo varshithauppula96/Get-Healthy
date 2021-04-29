@@ -1,4 +1,4 @@
-const FEEDBACK_URL= "http://localhost:5000/api/feedback";
+const FEEDBACK_URL= "http://h1n.herokuapp.com/api/feedback";
 
 const getFeedbackByTrainerId = (TrainerId) =>
     fetch(`${FEEDBACK_URL}/${TrainerId}`)
