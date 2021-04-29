@@ -56,7 +56,7 @@ function App() {
                 <Route path="/login" exact={true}  component={Login}/>
                 <PrivateRoute exact path="/dashboard" component={Dashboard} />
                 <PrivateRoute exact path="/profile/:profileId">
-                    <PublicProfile/>
+
                 </PrivateRoute>
                 <Route path="/home/user/:userID" exact={true}  component={UserHome}/>
                 <Route path="/users" exact={true}  component={AllUsers}/>

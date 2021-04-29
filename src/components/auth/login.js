@@ -46,6 +46,7 @@ class Login extends Component {
     render() {
         const { errors } = this.state;
         return (
+
             <div>
                 <Navbar/>
             <br/>
@@ -114,10 +115,16 @@ class Login extends Component {
                                 >
                                     Login
                                 </button>
+
                             </div>
+
                         </form>
+
                     </div>
+                <h6 className="m-5"> <a href="\register" >No Account? Click here to Register!</a></h6>
             </div>
+
+
         );
     }
 }
