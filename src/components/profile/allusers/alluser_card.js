@@ -11,7 +11,7 @@ const AllUserCard = (
                 {<img className="card-img-top" src="https://picsum.photos/300/200" />}
                 <div className="card-body" >
                     <h5 className="card-title">
-                        <a href={`/anonymous-profile/${user._id}`}>
+                        <a href={`/profile/${user._id}`}>
                         <h3>{user.name}</h3>
                         </a>
                     </h5>

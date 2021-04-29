@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import {Link, useParams, useHistory} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import IngredientService from "../../services/ingredient-service";
 import FoodTrackerService from "../../services/food-tracker-service";
 import {Button} from "@material-ui/core";

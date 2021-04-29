@@ -73,13 +73,14 @@ function UserHome({user, logoutClick}) {
                         className={classes.menuButton}>
                         <MenuIcon/>
                     </IconButton>
-                    <Typography variant="h4" noWrap className={classes.hide_above_sm}>
-                        GET HEALTHY
+                    <Typography variant="h6"
+                                className={classes.hide_above_sm}>
+                        {user.name}
                     </Typography>
                 </Toolbar>
             </AppBar>
 
-            <NavSideBar mobileOpen={mobileOpen} handleDrawerToggle={handleDrawerToggle} logoutClick={logoutClick}/>
+            <NavSideBar mobileOpen={mobileOpen} handleDrawerToggle={handleDrawerToggle} logoutClick={logoutClick} user={user}/>
 
             <main className={classes.content}>
                 <div className={classes.toolbar}/>
@@ -95,13 +96,6 @@ function UserHome({user, logoutClick}) {
                             renderInput={(params) => <TextField {...params} />}
                         />
                     </LocalizationProvider>
-
-
-                    {/*<Typography variant="h6"*/}
-                    {/*            noWrap*/}
-                    {/*            component={Paper}>*/}
-                    {/*    Total Calorie Intake = {totalCalories}*/}
-                    {/*</Typography>*/}
                 </div>
 
                 <div>

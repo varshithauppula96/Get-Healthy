@@ -59,7 +59,6 @@ const PublicProfile=() => {
                             Name : {user.about}
                         </li>
                     </ul>
-                    <h3>Post your feedback</h3>
                 </div>
                 }
         </div>

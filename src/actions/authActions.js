@@ -21,11 +21,46 @@ export const registerUser = (userData, history) => dispatch => {
             })
         );
 };
-export const updateUser = (userData, history) => dispatch => {
+
+export const loginUserWithoutPassword = userData => dispatch => {
     axios
-        .post("/api/users/profile", userData)
-        .then(res => history.push("/")) // re-direct updated profile
+        .post ("/api/users/loginwithoutpassword", userData)
+        .then(res => {
+            // Save to localStorage
+            // Set token to localStorage
+            const { token } = res.data;
+            localStorage.setItem("jwtToken", token);
+            // Set token to Auth header
+            setAuthToken(token);
+            // Decode token to get user data
+            const decoded = jwt_decode(token);
+            // Set current user
+            dispatch(setCurrentUser(decoded));
+        })
         .catch(err =>
+            dispatch({
+                type: GET_ERRORS,
+                payload: err.response.data
+            })
+        );
+};
+
+export const updateUser = (userData, password) => dispatch => {
+    axios
+        .put(`/api/users/profile/${userData._id}`, userData)
+        .then(res => {
+            // Save to localStorage
+            // Set token to localStorage
+            const { token } = res.data;
+            localStorage.setItem("jwtToken", token);
+            // Set token to Auth header
+            setAuthToken(token);
+            // Decode token to get user data
+            const decoded = jwt_decode(token);
+            // Set current user
+            dispatch(setCurrentUser(decoded));
+            //dispatch(loginUserWithoutPassword(userData))
+        }).catch(err =>
             dispatch({
                 type: GET_ERRORS,
                 payload: err.response.data
@@ -39,7 +74,7 @@ export const loginUser = userData => dispatch => {
         .post ("/api/users/login", userData)
         .then(res => {
             // Save to localStorage
-// Set token to localStorage
+            // Set token to localStorage
             const { token } = res.data;
             localStorage.setItem("jwtToken", token);
             // Set token to Auth header
@@ -81,47 +116,3 @@ export const logoutUser = () => dispatch => {
     // Set current user to empty object {} which will set isAuthenticated to false
     dispatch(setCurrentUser({}));
 };
-
-/**
- * User information
- */
-// export const fetchProfile = () => dispatch => {
-//         axios.get("/api/users/profile", {
-//             headers: { authorization: localStorage.getItem('token') }
-//         }).then(response => {
-//             dispatch({
-//                 type: FETCH_PROFILE,
-//                 payload: response.data.user,
-//             });
-//         });
-//     }
-
-
-// export function updateProfile({ name, email, password, userType }) {
-//     return function(dispatch) {
-//         axios.put("/api/users/profile", {  // req.body (2nd parameter)
-//                 name,
-//                 email,
-//                 password,
-//                 userType,
-//             })
-//             .then((res) => {  // Update profile success
-//                 // Save to localStorage
-//                 // Set token to localStorage
-//                 const { token } = res.data;
-//                 localStorage.setItem("jwtToken", token);
-//                 // Set token to Auth header
-//                 setAuthToken(token);
-//                 // Decode token to get user data
-//                 const decoded = jwt_decode(token);
-//                 // Set current user
-//                 dispatch(setCurrentUser(decoded));
-//             })
-//             .catch(err =>
-//                 dispatch({
-//                     type: GET_ERRORS,
-//                     payload: err.response.data
-//                 }))
-//     }
-// }
-

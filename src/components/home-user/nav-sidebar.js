@@ -29,13 +29,17 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const NavSideBar = (props) => {
-    const {window} = props;
+    const {window, user} = props;
     const classes = useStyles();
     const theme = useTheme();
 
     const drawer = (
         <div>
-            <div className={classes.toolbar}/>
+            <div className={classes.toolbar}>
+                <h1 className="text-primary">
+                    {user.name}
+                </h1>
+            </div>
             <Divider/>
             <List>
                 <ListItem button key={"dashboard"}>
@@ -50,6 +54,9 @@ const NavSideBar = (props) => {
                 </ListItem>
                 <ListItem button key={"profile"}>
                     <Link to={"/profile"}>Profile</Link>
+                </ListItem>
+                <ListItem button key={"allUsers"}>
+                    <Link to={"/users"}>Check other users</Link>
                 </ListItem>
                 <ListItem button key={"logout"} onClick={props.logoutClick}>
                     <ListItemText primary="Logout"/>
