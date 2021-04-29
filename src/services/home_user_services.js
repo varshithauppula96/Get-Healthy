@@ -1,5 +1,5 @@
-const USERS_URL = "http://localhost:5000/api/users";
-const TRAINER_URL ="http://localhost:5000/api/users/trainers";
+const USERS_URL = "https://gethealthybackend.herokuapp.com/api/users";
+const TRAINER_URL ="https://gethealthybackend.herokuapp.com/api/users/trainers";
 
 export const findAllUsers = () =>
     fetch(USERS_URL)
