@@ -40,7 +40,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "proxy": "",
+  "proxy": "https://gethealthybackend.herokuapp.com",
   "eslintConfig": {
     "extends": [
 
