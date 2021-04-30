@@ -2,7 +2,7 @@
   "name": "healthfit-react",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://gethealth-react.herokuapp.com",
+  "homepage": "https://gethealty123.herokuapp.com",
   
   "dependencies": {
     "@emotion/react": "^11.1.5",
@@ -42,10 +42,7 @@
     "eject": "react-scripts eject",
     "heroku-postbuild": "npm run build"
   },
-
-
-  },
-  "proxy": "https://gethealthybackend.herokuapp.com/",
+  
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -67,8 +64,5 @@
   "devDependencies": {
     "eslint": "^7.24.0",
     "prop-types": "^15.7.2"
-  },
-  "devServer": {
-    "disableHostCheck": true
   }
 }
