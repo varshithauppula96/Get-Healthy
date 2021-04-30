@@ -97,7 +97,7 @@ class Register extends Component {
                                         error={errors.name}
                                         id="name"
                                         type="text"
-                                        className={classnames("col-sm-10", {
+                                        className={classnames("col-sm-10 form-control", {
                                             invalid: errors.name
                                         })}
                                     />
@@ -110,6 +110,11 @@ class Register extends Component {
                             </div>
 
 
+
+
+
+
+
                             <div className="form-group row">
                                 <label className="col-sm-2 col-form-label" htmlFor="email">Email</label>
                                 <div className="col-sm-10">
@@ -119,7 +124,7 @@ class Register extends Component {
                                         error={errors.email}
                                         id="email"
                                         type="email"
-                                        className={classnames("col-sm-10", {
+                                        className={classnames("col-sm-10 form-control", {
                                             invalid: errors.email
                                         })}
                                     />
@@ -136,7 +141,7 @@ class Register extends Component {
                                         error={errors.password}
                                         id="password"
                                         type="password"
-                                        className={classnames("col-sm-10", {
+                                        className={classnames("col-sm-10 form-control", {
                                             invalid: errors.password
                                         })}
                                     />
@@ -153,7 +158,7 @@ class Register extends Component {
                                         error={errors.password2}
                                         id="password2"
                                         type="password"
-                                        className={classnames("col-sm-10", {
+                                        className={classnames("col-sm-10 form-control", {
                                             invalid: errors.password2
                                         })}
                                     />
@@ -168,7 +173,7 @@ class Register extends Component {
                                 <div className="col-sm-10">
                                     <select error={errors.gender}
                                             id="gender"
-                                            className={classnames("col-sm-10", {
+                                            className={classnames("col-sm-10 form-control", {
                                                 invalid: errors.gender
                                             })}
                                             value={this.state.value}  onChange={this.onChange}>
@@ -192,7 +197,7 @@ class Register extends Component {
                                         error={errors.dateOfBirth}
                                         id="dateOfBirth"
                                         type="date"
-                                        className= {classnames("col-sm-10", {
+                                        className= {classnames("col-sm-10 form-control", {
                                             invalid: errors.dateOfBirth
                                         })}
                                     />
@@ -210,7 +215,7 @@ class Register extends Component {
                                         error={errors.weightInKgs}
                                         id="weightInKgs"
                                         type="text"
-                                        className={classnames("col-sm-10", {
+                                        className={classnames("col-sm-10 form-control", {
                                             invalid: errors.weightInKgs
                                         })}
                                     />
@@ -228,7 +233,7 @@ class Register extends Component {
                                         error={errors.heightInCms}
                                         id="heightInCms"
                                         type="text"
-                                        className={classnames("col-sm-10", {
+                                        className={classnames("col-sm-10 form-control", {
                                             invalid: errors.heightInCms
                                         })}
                                     />
@@ -243,11 +248,11 @@ class Register extends Component {
                                 <div className="col-sm-10">
                                     <select error={errors.userType}
                                             id="userType"
-                                            className={classnames("col-sm-10", {
+                                            className={classnames("col-sm-10 form-control", {
                                                 invalid: errors.userType
                                             })}
                                             value={this.state.value}  onChange={this.onChange}>
-                                        <option disabled selected value> -- select an option -- </option>
+                                        <option disabled selected value> -- Select an option -- </option>
                                         <option value="User">User</option>
                                         <option value="Trainer">Trainer</option>
 
@@ -266,11 +271,11 @@ class Register extends Component {
                                     <select disabled={this.state.userType === "Trainer" ? true : false}
                                             error={errors.trainerId}
                                             id="trainerId"
-                                            className={classnames("col-sm-10", {
+                                            className={classnames("col-sm-10 form-control", {
                                                 invalid: errors.trainerId
                                             })}
                                             value={this.state.value}  onChange={this.onChange}>
-                                        <option disabled selected value> -- select an option -- </option>
+                                        <option disabled selected value> -- Select an option -- </option>
                                         {
                                             this.state.trainers.map((trainerId) => (
                                                 <option key={trainerId._id} value={trainerId._id}>{trainerId.name}</option>
@@ -291,7 +296,7 @@ class Register extends Component {
                                         error={errors.about}
                                         id="about"
                                         type="about"
-                                        className={classnames("col-sm-10", {
+                                        className={classnames("col-sm-10 form-control", {
                                             invalid: errors.about
                                         })}
                                     />
@@ -310,13 +315,13 @@ class Register extends Component {
 
                                     }}
                                     type="submit"
-                                    className="btn btn-light  waves-effect waves-light hoverable blue accent-3"
+                                    className="btn btn-light form-control waves-effect waves-light hoverable blue accent-3"
                                 >
                                     Sign up
                                 </button>
                             </div>
                         </form>
-
+                <h6 className="m-5"> <a href="\login" >Already have an Account? Click here to Login!</a></h6>
             </div>
             </div>
         );

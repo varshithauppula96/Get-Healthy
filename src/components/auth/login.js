@@ -46,6 +46,7 @@ class Login extends Component {
     render() {
         const { errors } = this.state;
         return (
+
             <div>
                 <Navbar/>
             <br/>
@@ -53,7 +54,7 @@ class Login extends Component {
                 <br/>
 
             <div className=" main p-5 m-5 bg-secondary  text-white container-fill">
-                <h1>Sign Up</h1>
+                <h1>Login</h1>
 
                 <br/>
 
@@ -68,7 +69,7 @@ class Login extends Component {
                                     error={errors.email}
                                     id="email"
                                     type="email"
-                                    className={classnames("col-sm-10", {
+                                    className={classnames("col-sm-10 form-control", {
                                         invalid: errors.email || errors.emailnotfound
                                     })}
                                 />
@@ -89,7 +90,7 @@ class Login extends Component {
                                     error={errors.password}
                                     id="password"
                                     type="password"
-                                    className={classnames("col-sm-10", {
+                                    className={classnames("col-sm-10 form-control", {
                                         invalid: errors.password || errors.passwordincorrect
                                     })}
                                 />
@@ -110,14 +111,20 @@ class Login extends Component {
                                         marginTop: "1rem"
                                     }}
                                     type="submit"
-                                    className="btn btn-light  waves-effect waves-light hoverable blue accent-3"
+                                    className="btn btn-light form-control waves-effect waves-light hoverable blue accent-3"
                                 >
                                     Login
                                 </button>
+
                             </div>
+
                         </form>
+
                     </div>
+                <h6 className="m-5"> <a href="\register" >No Account? Click here to Register!</a></h6>
             </div>
+
+
         );
     }
 }

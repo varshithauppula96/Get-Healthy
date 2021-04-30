@@ -39,7 +39,8 @@ const DetailsScreen = () => {
         <br/>
         <br/>
         <div className="container-fluid">
-        <a href={"/search"}>Go back to search page</a>
+        <a style={{margin:"15px"}}
+            className="btn btn-light" href={"/search"}>Go back to search page</a>
             <h2 style={{textAlign:"center"}}>
                 {recipe["label"]}
             </h2>

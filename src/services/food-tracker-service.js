@@ -1,5 +1,4 @@
 const FOOD_TRACKER_URL = "https://h1n.herokuapp.com//api/foodEntries"
-
 const getAllFoodEntries = () =>
     fetch(`${FOOD_TRACKER_URL}`)
         .then(response => response.json())

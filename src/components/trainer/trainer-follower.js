@@ -5,9 +5,7 @@ import FeedbackService from "../../services/feedback-service";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {logoutUser} from "../../actions/authActions";
-
 class TrainerFollower extends Component {
-
     constructor() {
         super();
         this.state = {
@@ -16,7 +14,6 @@ class TrainerFollower extends Component {
             feed: ""
         }
     }
-
     componentDidMount() {
         UserService.getTrainees(this.props.auth.user._id)
             .then((trainee) => {
@@ -25,7 +22,6 @@ class TrainerFollower extends Component {
                 })
             })
     }
-
     postFeedback = (trainee) => {
         let feedback = {
             "feedbackText": this.state.post,
@@ -35,65 +31,60 @@ class TrainerFollower extends Component {
         }
         FeedbackService.postFeedbackToUser(feedback)
     }
-
     render(){
         const {user} = this.props.auth;
         const {classes, history} = this.props;
-
         return (
-        <div>
-            <h3 style={{textAlign:"center"}}>Your Trainees</h3>
-            <h5>You have {this.state.trainees.length} trainees</h5>
-            <div className="container-fluid row">
-                {
-                    this.state.trainees.map((trainee) =>
-                        <div>
-                            <div className="col-1"></div>
-                            <div key={trainee["_id"]}>
-                                <div className="col-3">
-                                    <Link to={`../${trainee["_id"]}`}>
-                                        {
-                                            trainee["name"]
-                                        }
-                                    </Link>
-                                </div>
-
-                                <textarea className="form-control"
-                                          onChange={(event) => {
-                                              this.setState({
-                                                  post: event.target.value
-                                              })
-                                          }}>
+            <div>
+                <h3 style={{textAlign:"center"}}>Your Trainees</h3>
+                <h5>You have {this.state.trainees.length} trainees</h5>
+                <div className="container-fluid row">
+                    {
+                        this.state.trainees.map((trainee) =>
+                            <div>
+                                <div className="col-1"></div>
+                                <div key={trainee["_id"]}>
+                                    <div className="col-3">
+                                        <Link to={`/profile/${trainee["_id"]}`}>
+                                            {
+                                                trainee["name"]
+                                            }
+                                        </Link>
+                                    </div>
+                                    <textarea className="form-control"
+                                              key={trainee["_id"]}
+                                              onChange={(event) => {
+                                                  this.setState({
+                                                      post: event.target.value
+                                                  })
+                                              }}>
                                         </textarea>
-
-                                <button className="btn btn-primary"
-                                        disabled={!this.state.post}
-                                        onClick={() => {
-                                            this.postFeedback(trainee)
-                                            history.goBack()
-                                        }}>
-                                    Post Feedback
-                                </button>
-
+                                    <button className="btn btn-primary"
+                                            key={trainee["_id"]}
+                                            id = {trainee["_id"]}
+                                            disabled={!this.state.post}
+                                            onClick={() => {
+                                                this.postFeedback(trainee)
+                                                history.goBack()
+                                            }}>
+                                        Post Feedback
+                                    </button>
+                                </div>
                             </div>
-                        </div>
-                    )
-                }
+                        )
+                    }
+                </div>
             </div>
-        </div>
-    )
+        )
+    }
 }
-}
-
 TrainerFollower.propTypes = {
     logoutUser: PropTypes.func.isRequired,
     auth: PropTypes.object.isRequired
 };
-
 const mapStateToProps = state => ({
     auth: state.auth
 });
-
 export default connect(
     mapStateToProps,
     { logoutUser }

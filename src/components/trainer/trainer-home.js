@@ -15,7 +15,7 @@ const Trainer = ({user, logoutClick}) => {
     useEffect(()=>{
         getFeedback(user._id);
         UserService.getTrainees(user._id).then((trainee) => setTrainees(trainee))
-    },[])
+    },[feedback,user._id])
 
     const getFeedback = (userId) => {
         FeedbackService.getFeedbackByTrainerId(userId).then((feedback) =>{
@@ -43,7 +43,10 @@ const Trainer = ({user, logoutClick}) => {
                                         <h4 className="mt-0 mb-0">
                                             {user["name"]}
                                         </h4>
-                                        <button className={"float-right"} onClick={logoutClick}>Logout</button>
+                                        <button
+                                            style={{margin:"20px"}}
+                                            className="btn btn-light btn-md float-right"
+                                                onClick={logoutClick}>Logout</button>
                                         <p className="small mb-4"><i className="fas fa-map-marker-alt mr-2"></i>Boston
                                         </p>
                                     </div>
@@ -54,7 +57,7 @@ const Trainer = ({user, logoutClick}) => {
                                     <li className="list-inline-item">
                                         <h5 className="font-weight-bold mb-0 d-block">{feedbackCount}</h5>
                                         <i className="fas fa-comment text-muted mr-1"></i>
-                                        <a href="" className="text-muted">Feedbacks Given</a>
+                                        <a href="" className="text-muted">Your Feedbacks</a>
                                     </li>
                                     <li className="list-inline-item">
                                         <h5 className="font-weight-bold mb-0 d-block">{trainees.length}</h5>
@@ -65,8 +68,8 @@ const Trainer = ({user, logoutClick}) => {
                             </div>
                             <div className="px-4 py-3">
                                 <h5 className="mb-10">About</h5>
-                                <Link to={`/home/user/${user._id}/profile`}
-                                      className="btn btn-outline-dark btn-sm float-right">Edit
+                                <Link to={`/profile`}
+                                      className="btn btn-outline-dark btn-md float-right">Your
                                     profile</Link>
                                 <div className="p-4 rounded shadow-sm bg-light">
                                     <p className="font-italic mb-0">Email : {user["email"]}</p>
@@ -94,7 +97,7 @@ const Trainer = ({user, logoutClick}) => {
                                                             {
                                                                 fd["feedbackText"]
                                                             } FOR &nbsp;
-                                                            <Link to={`./${fd["userId"]}`}>
+                                                            <Link to={`/profile/${fd["userId"]}`}>
                                                                 {
                                                                     fd["nameOfUser"]
                                                                 }

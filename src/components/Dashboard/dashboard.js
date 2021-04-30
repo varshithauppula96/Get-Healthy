@@ -1,3 +1,6 @@
+
+
+
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import {Link} from 'react-router-dom';
@@ -7,10 +10,8 @@ import { withStyles } from '@material-ui/styles';
 import {makeStyles} from "@material-ui/core/styles";
 import UserHome from "../home-user/user-home";
 import Trainer from "../trainer/trainer-home";
-
 const drawerWidth = 240;
 const initialValue = new Date();
-
 const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
@@ -27,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
             display: 'none',
         },
     },
-    // necessary for content to be below app bar
+// necessary for content to be below app bar
     toolbar: theme.mixins.toolbar,
     content: {
         flexGrow: 1,
@@ -45,41 +46,32 @@ const useStyles = makeStyles((theme) => ({
         },
     }
 }));
-
 class Dashboard extends Component {
-
     constructor() {
         super();
         this.state = {
             mobileOpen: false,
         }
     }
-
     handleDrawerToggle = () => {
         this.props.mobileOpen = !this.props.mobileOpen
     };
-
     onLogoutClick = e => {
         e.preventDefault()
         this.props.logoutUser()
     };
-
     onProfileUpdateClick = e => {
         e.preventDefault()
         this.props.updateProfile()
     };
-
     render() {
         const {user} = this.props.auth;
         const {classes} = this.props;
-
         return (
-
             <div>
                 {/*{*/}
                 {/*    user.isAuthenticated==false&&*/}
                 {/*    <div>*/}
-
                 {/*        <div className='alert alert-warning'>*/}
                 {/*            Not logged in, please login to View this content :D*/}
                 {/*        </div>*/}
@@ -99,17 +91,15 @@ class Dashboard extends Component {
         );
     }
 }
-
 Dashboard.propTypes = {
     logoutUser: PropTypes.func.isRequired,
     auth: PropTypes.object.isRequired
 };
-
 const mapStateToProps = state => ({
     auth: state.auth
 });
-
 export default connect(
     mapStateToProps,
     { logoutUser }
 )(withStyles(useStyles)(Dashboard));
+

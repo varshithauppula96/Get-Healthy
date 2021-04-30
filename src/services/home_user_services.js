@@ -1,7 +1,6 @@
-const USERS_URL = "https://h1n.herokuapp.com/api/users";
-const TRAINER_URL ="https://h1n.herokuapp.com/api/users/trainers";
-
-export const findAllUsers = () =>
+const USERS_URL = "https://gethealthybackend.herokuapp.com/api/users";
+const TRAINER_URL ="https://gethealthybackend.herokuapp.com/api/users/trainers";
+ export const findAllUsers = () =>
     fetch(USERS_URL)
         .then(response => response.json())
 

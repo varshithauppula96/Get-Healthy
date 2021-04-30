@@ -1,4 +1,4 @@
-const FEEDBACK_URL= "https://h1n.herokuapp.com/api/feedback";
+const FEEDBACK_URL= "https://gethealthybackend.herokuapp.com/api/feedback";
 
 const getFeedbackByTrainerId = (TrainerId) =>
     fetch(`${FEEDBACK_URL}/${TrainerId}`)
@@ -15,6 +15,11 @@ const postFeedbackToUser = (feedback,trainerId) => {
         .then(response => response.json())
 }
 
+const getFeedbackForUser = (userId) =>{
+    return fetch(`${FEEDBACK_URL}/users/${userId}`)
+        .then(response => response.json())
+
+}
 const deleteFeedback = (trainerId,fid) => {
     // console.log(trainerId, fid)
     fetch(`${FEEDBACK_URL}/${trainerId}/${fid}`,
@@ -24,7 +29,8 @@ const deleteFeedback = (trainerId,fid) => {
 const FeedbackService = {
     getFeedbackByTrainerId,
     postFeedbackToUser,
-    deleteFeedback
+    deleteFeedback,
+    getFeedbackForUser
 }
 
 export default FeedbackService;
